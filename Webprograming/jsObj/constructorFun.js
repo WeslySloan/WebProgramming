@@ -5,7 +5,6 @@ function Circle(radius, name) {
         return  this.radius * this.radius * 3.14;
     };
 }
-
 var pizza = new Circle(10, "자바피자");
 var donut = new Circle(2, "자바도넛");
 console.log(pizza.name + "의 면적은 " + pizza.getArea());
