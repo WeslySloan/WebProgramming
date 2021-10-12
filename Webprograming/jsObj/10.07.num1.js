@@ -36,6 +36,8 @@ var donut = {
 console.log(name + "의 면적은 " + pizza.getArea());
 console.log(name + "의 면적은 " + donut.getArea());
 
+// 
+
 3번문제
 
 
