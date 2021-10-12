@@ -2,7 +2,7 @@ function Circle(radius, name) {
     this.radius = radius;
     this.name = name;
     this.getArea = function () {
-        return 3.14 * this.radius * this.radius;
+        return  this.radius * this.radius * 3.14;
     };
 }
 

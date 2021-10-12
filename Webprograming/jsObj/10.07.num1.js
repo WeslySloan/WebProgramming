@@ -1,7 +1,7 @@
 
 
 
-fuction Circle (radius, name) {
+function Circle (radius, name) {
     this.radius = radius
     this.name = name
     this.radius = fuction () { 
@@ -11,16 +11,15 @@ fuction Circle (radius, name) {
 
 
     var pizza = new Circle(10, "자바피자");
-    var donut = new Circle(2, "자바도넛")
 
     return consoloe.log(name+"의 면적은"+area);
-}
+
 
 //
 
 2번문제
 
-fuction getArea() {
+function getArea() {
     return 3.14 * this.radius * this.radius;
 }
 
