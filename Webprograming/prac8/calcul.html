@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script>
+    function add() {
+      var txtx = document.getElementById("txt-x");
+      var txty = document.getElementById("txt-y");
+      var result = document.getElementById("txt-result");
+      var x = parseInt(txtx.value);
+      var y = parseInt(txty.value);
+
+      var operator = document.getElementById("operator").value;
+
+      var res = 0;
+      switch(operator) 
+        {
+            case '+': res = x + y;
+            break;
+            case '-': res = x - y;
+            break;
+            case '*': res = x * y; 
+            break;
+            case '/': res = x / y;  
+            break;
+        } 
+      result.value = res;
+      
+    };
+  </script>
+</head>
+
+<body>
+  <h2>더하기 프로그램</h2>
+  <li> Tag 적용 : &lt input id="txt-x" type="text" value="0" dir="rtl" &gt 로 수를 받아 들임</li>
+  <li> 입력된 수는 스트링이므로, 이를 정수로 변환하는 parseInt 함수를 적용함 </li>
+  <li> = 버튼을 클릭하면 입력된 두 수를 더한 결과를 마지막 input tag 란에 보이게 함</li>
+  <hr>
+  <div>
+    <input id="txt-x" type="text" value="0" dir="rtl" />
+    <select id="operator">
+      <option>+</option>
+      <option>-</option>
+      <option>*</option>
+      <option>/</option>
+    </select>
+    <input id="txt-y" type="text" value="0" dir="rtl" />
+    <input type="button" value="=" onclick="add()" />
+    <input id="txt-result" type="text" value="0" readonly dir="rtl" />
+  </div>
+</body>
+
+</html>
