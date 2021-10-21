@@ -11,6 +11,9 @@
 			obj.style.color = color;
 			obj.style.fontSize = size;
 
+            //obj = (obj == fst) ? snd : (obj == third) ? third : fst;
+
+
 		}
 	</script>
 </head>
@@ -30,9 +33,3 @@
 
 // 
 
-ex8-04.html 수정. 3개의 onclick 이벤트에 대해서, 첫 번째 버튼을 클릭하면 두 번째 버튼의 크기와 색이 바꾸고, 
-두 번째 버튼을 클리하면 첫 번째 번트의 크기와 색이 바뀌며, <div> 에 대한 것은 원래대로 동작도록 함. 
-이 내용대로 동작하도록 change 및 tag를 수정함 
-(힌트 : 3항 조건식을 두 번 적용)
-
-isMember ? '$2.00' : '$10.00'
