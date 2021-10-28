@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>this 활용</title>
+  <script>
+    window.addEventListener('load', () => {
+      var objs = document.getElementsByTagName("button");
+      var div = document.getElementById("div");
+
+      objs[0].addEventListener("click", () => change(objs[0], "30px", "red"));
+      objs[1].addEventListener("click", () => change(objs[1], "30px", "blue"));
+      div.addEventListener("click", () => change(div, "25px", "orange"));
+    });
+
+    function change(obj, size, color) {
+      obj.style.color = color;
+      obj.style.fontSize = size;
+    }
+  </script>
+</head>
+
+<body>
+  <h3>load 이벤트 핸들러에서 프로그램에서 사용되는 이벤트 핸들러들을 설정하기</h3>
+  <li>ex8-04.html의 수정하여, 3개의 이벤트 핸들러의 설정을 load 이벤트 핸들러에서 설정함</li>
+  <li>이벤트 핸들러 설정은 addEventListener를 이용함</li>
+  <li>위에 밑줄친 부분에 코드를 채워서 프로그램을 완성함</li>
+  <li>이벤트 핸들러는 람다 함수로 작성</li>
+  <li>람다 함수에 파라메터 없이 ( ) => 형태로 작성할 수도 있고,
+    (event) => 형태로 이벤트가 파라메터로 주어진 형태로 작성할 수도 있음.
+    3개의 핸들러 설정에 이 두 방법을 혼합하여 적용해 볼 것</li>
+  <hr>
+  <button>버튼</button>
+  <button>버튼</button>
+  <div id="div">
+    여기 클릭하면 크기와 색 변경
+  </div>
+</body>
+
+</html>
