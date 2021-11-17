@@ -21,7 +21,7 @@ console.log('res2 =', res2);                // [1,2,3,4,5,6,7,8]
 // reduce 함수를 적용하여, 배열 [1,2,3,4,5] 을 수 12345 로 변환한다.
 // 힌트 : 12345 = (((((0*10 + 1)*10 + 2)*10 + 3)*10 + 4)*10 + 5
 let str = "12345"
-let numArr = str._________.__________
+let numArr = str.split(n).__________
 console.log('numArr = ', numArr)            // [1,2,3,4,5]
 let num = numArr.reduce(( acc, cur ) => acc.concat(cur))
 console.log('num = ', num)                  // 12345
@@ -32,14 +32,14 @@ let arr3 = [1, 2, 3, 4];
 let res3 = arr3.map(x => x + x+1);
 console.log('res = ', res3);            // [ [1,2], [2,3], [3,4], [4,5] ]
 ``
-// // 배열의 원소들 중, 동일한 값을 갖는 것은 제거한다. 
-// // 예들 들어, ['a', 1, 'a', 2, '1'] 을 ['a', 1, 2, '1'] 로 만든다. 
-// // 알고리즘 : 배열의 원소를 처리하는 함수에서 각 원소에 대해서 (value, index, array) 의 3개로 입력을 받음.
-// // indexOf(value) === index 임을 체크함. indexOf(value)는 주어진 array 중에서 value가 나타나는 
-// // 가장 첫 번째 index를 리턴한다. 따라서, 동일한 값이 두번째 나타나는 경우 indexOf(value) === index 는 false 가 됨.
+// 배열의 원소들 중, 동일한 값을 갖는 것은 제거한다. 
+// 예들 들어, ['a', 1, 'a', 2, '1'] 을 ['a', 1, 2, '1'] 로 만든다. 
+// 알고리즘 : 배열의 원소를 처리하는 함수에서 각 원소에 대해서 (value, index, array) 의 3개로 입력을 받음.
+// indexOf(value) === index 임을 체크함. indexOf(value)는 주어진 array 중에서 value가 나타나는 
+// 가장 첫 번째 index를 리턴한다. 따라서, 동일한 값이 두번째 나타나는 경우 indexOf(value) === index 는 false 가 됨.
 
-// let arr4 = ['a', 1, 'a', 2, '1']
-// let res4 = arr4.___________________________________________________
-// console.log('res4 = ', res4)            // ['a', 1, 2, '1']
+let arr4 = ['a', 1, 'a', 2, '1']
+let res4 = arr4.___________________________________________________
+console.log('res4 = ', res4)            // ['a', 1, 2, '1']
 
 
