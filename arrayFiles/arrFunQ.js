@@ -85,3 +85,18 @@ console.log('res = ', res3);            // [ [1,2], [2,3], [3,4], [4,5] ]
 let arr4 = ['a', 1, 'a', 2, '1']
 let res4 = arr4.arr.filter((value, index, array) => array.indexOf(value) === index)
 console.log('res4 = ', res4)            // ['a', 1, 2, '1']
+
+
+
+
+1) const str = `"${arr1.reduce(( acc, cur ) => acc.concat(cur))}"`; 
+
+2) const sum = arr2.reduce(function add(sum, currValue) {return sum + currValue;}, 0);
+
+3) const product = arr2.reduce(function mult(sum, currValue) {return sum * currValue;}, 0);
+
+4) const arrBool = arr2.map(x => x%2 === 0 )
+
+5) arr2.forEach(x => console.log(x*x))
+
+const ten2hundredArr = Array.from({length })
