@@ -1,0 +1,67 @@
+<html>
+<style>
+  td,
+  th {
+    height: 20px;
+    width: 100px;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid;
+  }
+</style>
+
+<head>
+  <meta charset="utf-8">
+  <title>Table Sort</title>
+</head>
+
+<script>
+  window.onload = function () {
+
+    // creation of objects
+    class Student {
+      constructor(name, age, enrolled, score) {
+        this.name = name; this.age = age;
+        this.enrolled = enrolled; this.score = score;
+      }
+    }
+
+    var studs = [
+      new Student('B', 28, false, 80),
+      new Student('E', 18, true, 80),
+      new Student('A', 29, true, 95),
+      new Student('D', 40, false, 67),
+      new Student('C', 30, true, 92),
+    ];
+
+    function makeTable(arrObj) {
+      // 이곳을 채우세요
+    }
+
+    table.innerHTML = makeTable(studs);
+
+    thName.onclick = function () {
+      // 이곳을 채우세요
+    }
+
+    thAge.onclick = function () {
+      // 이곳을 채우세요
+    }
+
+    thScore.onclick = function () {
+      // 이곳을 채우세요
+    }
+  }
+</script>
+
+<body>
+  <table id="table">
+    <hr>
+
+    <h3>Table 만들기 및 Sorting</h3>
+    <li>객채들을 생성하여 배열 studs에 저장함</li>
+    <li>makeTable 함수 : 주어진 객체들의 배열을 HTML table로 만들어 display 함 (참조파일 : arr2html.html)</li>
+    <li>Sorting : table의 &lt thead &gt 의 해당 &lt th &gt 클릭 시 오름차순 정렬</li>
+</body>
+
+</html>

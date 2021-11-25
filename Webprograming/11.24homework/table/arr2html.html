@@ -1,0 +1,38 @@
+<html>
+<style>
+  td,
+  th {
+    height: 20px;
+    width: 100px;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid;
+  }
+</style>
+
+<head>
+  <meta charset="utf-8">
+  <title>Array2Table</title>
+</head>
+
+<body>
+  <div id="tableContent"></div>
+  <script>
+    var country = ["Norway", "Sweden", "Denmark"];
+    var capital = ["Oslo", "Stockholm", "Copenhagen"]
+    // nested backticks
+    const tmpl = (country, capital) =>
+      `<table>
+          <thead>
+          <tr><th>Country<th>Capital<tbody>
+      ${country
+        .map((cell, index) => `<tr><td>${cell}<td>${capital[index]}</tr>`)
+        .join('')
+      }
+      </table>`;
+    // type of innerHTML is string
+    tableContent.innerHTML = tmpl(country, capital);
+  </script>
+</body>
+
+</html>

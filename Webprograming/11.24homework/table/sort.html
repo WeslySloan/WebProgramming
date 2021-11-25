@@ -1,0 +1,119 @@
+<html>
+<style>
+  td,
+  th {
+    height: 20px;
+    width: 100px;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid;
+  }
+</style>
+
+<head>
+  <meta charset="utf-8">
+  <title>Table Sort</title>
+</head>
+
+<script>
+  window.onload = function () {
+
+    // creation of objects
+    class Student {
+      constructor(name, age, enrolled, score) {
+        this.name = name; this.age = age;
+        this.enrolled = enrolled; this.score = score;
+      }
+    }
+
+    var studs = [
+      new Student('B', 28, false, 70),
+      new Student('E', 18, true, 80),
+      new Student('A', 29, true, 95),
+      new Student('D', 40, false, 67),
+      new Student('C', 30, true, 92),
+    ];
+
+    const makeTable = (arrObj) =>
+      `<table>
+      <thead><tr><th id="thName">이름<th id="thAge">나이<th id="thReg">등록<th id="thScore">점수<tbody>
+        ${arrObj
+        .map((s) => `<tr><td>${s.name}<td>${s.age}<td>${s.enrolled ? "재학" : "휴학"}<td>${s.score}</tr>`)
+        .reduce((acc, cur) => acc + cur, "")  // .join('')
+      }
+      </table>`;
+
+    table.innerHTML = makeTable(studs);
+    console.log('printing table');
+    for (let i = 0; i < table.rows.length; i++) {
+      console.log(table.rows[i]);
+    }
+
+    function clickHandler(key) {
+      // convert table into an array of objects
+      // let studs = table2arrObj("table");
+      // sort by key
+      switch (key) {
+        case 'name':
+          studs.sort((a, b) => (a.name < b.name) ? -1 : Number(a.name > b.name));
+          break;
+        case 'age':
+          studs.sort((a, b) => a.age - b.age);
+          break;
+        case 'reg':
+          studs.sort((a, b) => a.enrolled - b.enrolled);
+          break;
+        case 'score':
+          studs.sort((a, b) => a.score - b.score);
+          break;
+      }
+      // replace the body of table with the sorted array
+      for (let i = 0; i < studs.length; i++) {
+        let { name, age, enrolled, score } = studs[i];
+        table.rows[i + 1].innerHTML = `<tr><td>${name}<td>${age}<td>${enrolled ? "재학" : "휴학"}<td>${score}</tr>`
+      }
+    }
+
+    // set the click handler for each item
+    thName.onclick = () => clickHandler('name');
+    thAge.onclick = () => clickHandler('age');
+    thReg.onclick = () => clickHandler('reg');
+    thScore.onclick = () => clickHandler('score');
+
+    // Convert HTML table to array
+    function table2array(tableId) {
+      myData = document.getElementById(tableId).rows;
+      let myList = [];
+      for (var i = 0; i < myData.length; i++) {
+        el = myData[i].children;
+        myEl = [];
+        for (var j = 0; j < el.length; j++) {
+          myEl.push(el[j].innerText);
+        }
+        myList.push(myEl);
+      }
+      return myList;
+    }
+
+    let ar = table2array("table");
+    // console.log(ar);
+
+    // convert two dimensional array to an array of objects
+    function table2arrObj(tbl) {
+      let arr = table2array(tbl);
+      arr.shift();                                  //remove the thead
+      let arrObjs
+        = arr.map(([name, age, enrol, score]) =>
+          new Student(name, Number(age), (enrol == "재학"), Number(score)));
+      return arrObjs;
+    }
+    // console.log(table2arrObj("table"));
+
+  }
+</script>
+
+<body>
+  <table id="table">
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<html>
+<style>
+  td,
+  th {
+    height: 20px;
+    width: 100px;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid;
+  }
+</style>
+
+<head>
+  <script>
+    window.onload = function () {
+
+      // the creation of objects
+      class Student {
+        constructor(name, age, enrolled, score) {
+          this.name = name; this.age = age;
+          this.enrolled = enrolled; this.score = score;
+        }
+      }
+
+      var studs = [
+        new Student('B', 28, false, 70),
+        new Student('E', 18, true, 80),
+        new Student('A', 29, true, 95),
+        new Student('D', 40, false, 67),
+        new Student('C', 30, true, 92),
+      ];
+
+      function makeTable(studs) {
+        // go back to the initial state of table; clear the tbody except the head. 
+        var table = document.querySelector("table");      // find the table
+        for (let n = table.rows.length - 1; n > 0; n--) {
+          table.rows[n].remove();
+        }
+
+        var tb = document.querySelector("tbody");         // parent
+        var trNode = document.querySelector('thead tr');  // take the template
+        for (let i = 0; i < studs.length; i++) {
+          var clone = trNode.cloneNode(true);             // clone the template
+          tds = clone.querySelectorAll("td");             // split the clone by td
+          let { name, age, enrolled, score } = studs[i];
+          tds[0].textContent = name;                      // set the content
+          tds[1].textContent = age;
+          tds[2].textContent = enrolled ? "재학" : "휴학";
+          tds[3].textContent = score;
+          tb.appendChild(clone);                          // append the clone
+        }
+      }
+
+      // makeTable(studs);
+
+      // studs.sort((a, b) => (a.name < b.name) ? -1 : Number(a.name > b.name));
+      // studs.sort((a, b) => a.age - b.age);
+      // studs.sort((a, b) => a.enrolled - b.enrolled);
+      studs.sort((a, b) => a.score - b.score);
+      makeTable(studs);
+    }
+  </script>
+</head>
+
+<body>
+  <table>
+    <thead>
+      <tr>
+        <td>이름</td>
+        <td>나이</td>
+        <td>등록</td>
+        <td>점수</td>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- 이곳에 데이터가 추가됨 -->
+    </tbody>
+  </table>
+</body>
+
+</html>

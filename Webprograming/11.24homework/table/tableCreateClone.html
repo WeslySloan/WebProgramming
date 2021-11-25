@@ -1,0 +1,41 @@
+<html>
+
+<head>
+  <script>
+    window.onload = function () {
+      var trNode = document.querySelector('thead tr');  // 복제할 대상 선정
+      var tb = document.querySelector("tbody");         // 복제된 내용이 첨부될 위치
+      var clone = trNode.cloneNode(true);               // 복제 실행
+      tds = clone.querySelectorAll("td");               // 복제된 내용을 td 단위로 구분
+      tds[0].textContent = "홍길동";                     // 복제된 내용 변경
+      tds[1].textContent = "경성대학교";
+      tb.appendChild(clone);                            // 복제된 내용 첨부
+    }
+  </script>
+</head>
+
+<body>
+  <h3>HTML에서 &lt table &gt 설정 후 cloneNode()를 적용한 &lt tr &gt 복제</h3>
+  <li>복제 대상 선택 ("thread tr")</li>
+  <li>복제 내용을 append할 parent 노드 선택("tbody")</li>
+  <li>cloneNode()를 적용하여 내용을 복제</li>
+  <li>복제된 내용을 "td" 단위로 구분 : <span style="color: red">querySelectorAll("td")</span></li>
+  <li>각 단위별로 내용을 변경하거나, sort 한 내용을 적용</li>
+  <li>복제된 내용을 붙임 : appendChild(clone)</li>
+  <li>기타 : innerText, textContent, innerHTML의 차이를 인터넷(stackoverflow)에서 검색해 볼 것</li>
+
+  <hr>
+  <table border="1">
+    <thead>
+      <tr>
+        <td>제목 1</td>
+        <td>제목 2</td>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- 이곳에 데이터가 추가됨 -->
+    </tbody>
+  </table>
+</body>
+
+</html>

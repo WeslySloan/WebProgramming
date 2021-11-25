@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+
+<body>
+  <table id='myTable' border='1'>
+    <thead>
+      <tr>
+        <th>Header</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Row 1</td>
+      </tr>
+      <tr>
+        <td>Row 2</td>
+      </tr>
+      <tr>
+        <td>Row 3</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td>Footer</td>
+      </tr>
+    </tfoot>
+  </table>
+  <div id='result'></div>
+
+  <script>
+    const table = document.getElementById('myTable');
+    const totalRowCnt = table.rows.length;
+    result.innerText = 'table.rows.length : ' + table.rows.length + '\n';
+    result.innerText += 'table.tBodies[0].rows.length : ' + table.tBodies[0].rows.length;
+  </script>
+</body>
+
+</html>

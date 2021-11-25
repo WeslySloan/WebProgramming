@@ -1,0 +1,103 @@
+<html>
+<style>
+  td,
+  th {
+    height: 20px;
+    width: 100px;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid;
+  }
+</style>
+
+<head>
+  <meta charset="utf-8">
+  <title>Table Sort</title>
+</head>
+
+<script>
+  window.onload = function () {
+
+    class Student {
+      constructor(name, age) {
+        this.name = name;
+        this.age = age;
+      }
+    }
+
+    // DOM of Table
+    myData = document.getElementById('table').rows;
+
+    console.log(myData);                  // 4개의 객체로 구성된 array
+    console.log(myData.children);         // undefined
+    console.log(myData[0]);               // <tr> <th>이름</th> <th>나이</th> </tr>
+    console.log(myData[0].children);      // 2개의 객체로 구성된 array
+    console.log(myData[0].children[0]);   // <th>이름</th>
+    console.log(myData[0].children[0].innerText);  // 이름 
+    console.log(myData[0].children[0].children);   // empty array  HTMLCollection []
+
+    // Convert HTML table to array
+    function table2array(tableId) {
+      myData = document.getElementById(tableId).rows;
+
+      let myList = [];
+      for (var i = 0; i < myData.length; i++) {
+        el = myData[i].children;
+        myEl = [];
+        for (var j = 0; j < el.length; j++) {
+          myEl.push(el[j].innerText);                 // inner array
+        }
+        myList.push(myEl);                            // outer array
+      }
+      return myList;
+    }
+
+    let ar = table2array("table");
+    // console.clear();
+    console.log(ar);  // [Array(2), Array(2), Array(2), Array(2)] 
+
+    // convert two dimensional array to an array of objects
+    function table2arrObj(tbl) {
+      let arr = table2array(tbl);
+      arr.shift();                                 //remove the thead
+      let arrObjs
+        = arr.map(([name, age, enrol, score]) =>
+          new Student(name, Number(age)));
+      return arrObjs;
+    }
+
+    console.log(table2arrObj("table"));
+
+  }
+</script>
+
+<body>
+  <table id="table">
+    <thead>
+      <tr id="thName">
+        <th>이름
+        <th>나이
+    <tbody>
+      <tr>
+        <td>Kim
+        <td>22
+      </tr>
+      <tr>
+        <td>Park
+        <td>20
+      </tr>
+      <tr>
+        <td>Lee
+        <td>21
+      </tr>
+  </table>
+  <hr>
+  <li>myData는 4개의 HTML 객체로 구성된 배열</li>
+  <li>myData[0] : &lt tr &gt &lt th &gt 이름 &lt /th&gt &lt th&gt 나이 &lt /th &gt &lt /tr&gt</li>
+  <li>myData[0].children : 2개의 HTML 객체로 구성된 배열 </li>
+  <li>myData[0].children[0] : &lt th &gt 이름 &lt /th&gt </li>
+  <li>myData[0].children[0].innerText : 이름 </li>
+
+</body>
+
+</html>

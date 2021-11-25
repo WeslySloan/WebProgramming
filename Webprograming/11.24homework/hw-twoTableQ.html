@@ -1,0 +1,45 @@
+<html>
+<style>
+  td,
+  th {
+    height: 20px;
+    width: 100px;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid;
+  }
+</style>
+
+<head>
+  <meta charset="utf-8">
+  <title>Table Sort</title>
+</head>
+
+<script>
+  window.onload = function () {
+    function twoTable() {
+      // 이 곳을 채우세요
+      let arr2n = [{ name: 'kim'}, {name: 'park'}, {name: 'lee'}];
+      let arr2a = [{ age: 22}, {age: 20}, {age: 21}];
+      let str2 = `<thead><tr id="thName"><th>이름<tbody>${arr.map((x) => `<tr><td>${x.name}</tr>`).join('')}` 
+      table.innerHTML = str2;
+    }
+
+    // --------
+
+    let arr = [{ name: 'kim', age: 22 }, { name: 'park', age: 20 }, { name: 'lee', age: 21 }];
+    let str = `<thead><tr id="thName"><th>이름<th>나이<tbody>${arr.map((x) => `<tr><td>${x.name}<td>${x.age}</tr>`).join('')}`;
+    table.innerHTML = str;
+    btn.onclick = () => twoTable();
+  }
+</script>
+
+<body>
+  <h2>한 개의 테이블을 두 개로 나누기</h2>
+  <table id="table">
+    <table id="nameTable"></table>
+    <table id="ageTable"></table>
+    <button id='btn'>이곳을 클릭하면 테이블이 두 개로 분리됨</button>
+</body>
+
+</html>

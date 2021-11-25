@@ -1,0 +1,46 @@
+<html>
+<style>
+  td,
+  th {
+    height: 20px;
+    width: 100px;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid;
+  }
+</style>
+
+<head>
+  <meta charset="utf-8">
+  <title>Table Sort</title>
+</head>
+
+<script>
+  window.onload = function () {
+    let arr2 = [{ name: 'kim', age: 22 }, { name: 'park', age: 20 }, { name: 'lee', age: 21 }];
+
+    let str2 =
+      `<table><thead><tr id="thName"><th>이름<th>나이<tbody>
+       ${arr2.map((x) => `<tr><td>${x.name}<td>${x.age}</tr>`).join('')}
+      </table>`;
+
+    table.innerHTML = str2;
+
+    console.log('printing table');
+    for (let i = 0; i < table.rows.length; i++) {
+      console.log(table.rows[i]);
+    }
+
+  }
+</script>
+
+<body>
+  <li>table은 배열 형태로 접근할 수 있음</li>
+  <li>table.rows[0],table.rows[1],table.rows[2],table.rows[3]</li>
+  <li>console에 출력 결과를 확인할 수 있음</li>
+  <li>str2는 backtick을 사용하여 전체를 묶은 후, 내부에서 다시 backtick을 사용함</li>
+  <hr>
+  <table id="table">
+</body>
+
+</html>
