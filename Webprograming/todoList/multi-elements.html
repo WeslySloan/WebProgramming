@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>DOM : Mutiple Nodes</title>
+
+  <script>
+    // 노드선택 방법과 일괄삭제, 노드의 자리바꾸기
+    window.addEventListener("load", () => {
+      var section = document.querySelector("#section");
+
+      var table = section.querySelector(".table");
+      var tbody = table.querySelector("tbody");
+      var allCheckbox = section.querySelector(".all-check");
+      var delButton = section.querySelector(".del-button");
+      var swapButton = section.querySelector(".swap-button");
+
+      allCheckbox.onchange = function () { // 일괄 선택
+        var inputs = tbody.querySelectorAll("input[type='checkbox']"); // input 태그 중 type 속성이 checkbox인 것 모두
+        for (var i = 0; i < inputs.length; i++) {
+          inputs[i].checked = allCheckbox.checked;  // 클릭 때마다 true/false 가 toggle
+        }
+      };
+
+      delButton.onclick = function () {  // 일괄 삭제
+        var inputs = tbody.querySelectorAll("input[type=checkbox]:checked"); // pseudo class
+        for (var i = 0; i < inputs.length; i++) {
+          inputs[i].parentElement.parentElement.remove();
+        }
+      };
+
+      swapButton.onclick = function () {
+        // 오직 두 input의 checkbox가 주어져야 함
+        var inputs = tbody.querySelectorAll("input[type=checkbox]:checked");
+        if (inputs.length != 2) {
+          alert("노드는 두 개만을 선택해야 합니다");
+          return;
+        }
+
+        var trs = [];
+        for (var i = 0; i < inputs.length; i++)
+          // inputs[i].parentElement.parentElement 은 해당 input이 속한 <tr>
+          trs.push(inputs[i].parentElement.parentElement);  // two <tr> 의 pointers
+
+        // swap
+        var cloneNode = trs[0].cloneNode(true);  // 선택된 첫 노드 내용 복사
+        trs[1].replaceWith(cloneNode);
+        trs[0].replaceWith(trs[1]);
+      };
+    });
+  </script>
+
+</head>
+
+<body>
+  <section id="section">
+    <h1> 다중 노드선택, 일괄 삭제, 노드 Swap</h1>
+    <div>
+      <input type="button" class="del-button" value="일괄 삭제" />
+      <input type="button" class="swap-button" value="선택 노드 swap" />
+    </div>
+    <table border="1" class="table">
+      <thead>
+        <tr>
+          <td><input class="all-check" type="checkbox"></td>
+          <td>번호</td>
+          <td>제목</td>
+          <td>작성일</td>
+          <td>작성자</td>
+          <td>조회수</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><input type="checkbox"></td>
+          <td>1</td>
+          <td><a href="1">HTML과 CSS</a></td>
+          <td>2021-09-25</td>
+          <td>소프트웨어학과</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox"></td>
+          <td>2</td>
+          <td><a href="2">JavaScript 프로그래밍</a></td>
+          <td>2021-10-25</td>
+          <td>소프트웨어학과</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox"></td>
+          <td>3</td>
+          <td><a href="3">DOM 프로그래밍</a></td>
+          <td>2021-11-25</td>
+          <td>소프트웨어학과</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox"></td>
+          <td>4</td>
+          <td><a href="4">React 시작</a></td>
+          <td>2021-12-25</td>
+          <td>소프트웨어학과</td>
+          <td>0</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</body>
+
+</html>
