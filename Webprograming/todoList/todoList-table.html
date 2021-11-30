@@ -8,6 +8,9 @@
       window.onload = () => {
         let inputs = document.querySelectorAll(".value-input");
         inputs[1].onclick = () => todoAdd();
+        
+        var swapButton = section.querySelector(".swap-button");
+        delbutton.onclick = () => del();
 
         let todoAdd = () => {
           var trNode = document.querySelector('thead tr');  // template 대상 선정
@@ -22,27 +25,9 @@
         }
       }
 //
-function folderDeleteClick(){
-  var checkBoxArr = []; 
-  $("input:checkbox[name='folderCheckname']:checked").each(function() {
-  checkBoxArr.push($(this).val());     // 체크된 것만 값을 뽑아서 배열에 push
-  console.log(checkBoxArr);
-})
+      let del = () => {
 
-  $.ajax({
-      type  : "POST",
-      url    : "<c:url value='/folderDelete.do'/>",
-      data: {
-      checkBoxArr : checkBoxArr        // folder seq 값을 가지고 있음.
-      },
-      success: function(result){
-      	console.log(result);
-      },
-      error: function(xhr, status, error) {
-      	alert(error);
-      }  
-   });
-} 
+      }
 //
     </script>
   </head>
