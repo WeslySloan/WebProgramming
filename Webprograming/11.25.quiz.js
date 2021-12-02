@@ -19,3 +19,5 @@ let people =
     let ys = people.map( s=> s.age);
     console.log(xs);
     console.log(ys);
+
+    
