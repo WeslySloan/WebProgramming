@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script>
+    // function add() {
+    let add = () => {
+      var txtx = document.getElementById("txt-x");
+      var txty = document.getElementById("txt-y");
+      var result = document.getElementById("txt-result");
+      var inputs = document.getElementsByTagName("input");
+      var txtx = inputs[0];
+      var txty = inputs[1];
+      var result = inputs[3];
+      var x = parseInt(txtx.value);
+      var y = parseInt(txty.value);
+      result.value = x + y;
+    };
+  </script>
+</head>
+
+<body>
+  <h3>계산기 프로그램</h3>
+  <p>더하기</p>
+  <hr>
+  <div>
+    <input id="txt-x" type="text" value="0" dir="rtl" />
+    +
+    <input id="txt-y" type="text" value="0" dir="rtl" />
+    <input type="button" value="=" onclick="add()" />
+    <input id="txt-result" type="text" value="0" readonly dir="rtl" />
+  </div>
+</body>
+
+</html>

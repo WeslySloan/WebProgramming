@@ -1,0 +1,81 @@
+I. React Install
+
+1. nodeJS 설치 및 버전 확인 
+   $ node -v
+   $ npm -v
+2. Project 시작
+   $ npx create-react-app project (project 폴더 생성 및 환경 설치)
+   $ cd project 
+   $ npm start (웹 윈도우가 새로 만들어 지고 React log가 돌아감)
+
+* create-react-app의 기능: 
+* npm 의 기능 : 여러 필요한 라이브러리를 설치할 떄 유용함 
+
+II. 프로젝트 폴더 구조 이해 하기
+
+1. $ code project (VSCode로 project 폴더 열기)
+2. public/index.html의 <div id="root"></div> : React Dom의 root
+3. src/App.js : 실제 프로젝트 내용이 표현되는 곳. 이곳서 실제 코딩이 시작됨
+4. src/index.js : App.js 의 내용을 index.html의 root에 연결시킴
+5. node_modules 폴더 : react를 구현하기 위해 필요한 라이브러리들 저장함
+6. public 폴더 : 이미지 등의 static 파일 보관함
+7. src 폴더 : 실제 코딩이 이루어지는 곳. App.css, App.js
+8. package.json : 설치한 라이브러들을 json 형태로 기록
+
+
+III. 실습 
+
+1. Learn React 리액트 배우기 (저장) 
+   혹은 <p> 안녕하세요 (저장)
+2. 이전 내용 삭제
+   - App.js의 <header> 삭제하고 임의 내용 삽입 (test)
+
+3. App.js 가 메인 HTML과 같아 보이는 이유 
+   - index.js가 이 페이지의 내용을 public/index.html의 root에 연결시키므로
+
+IV. JSX 작성 (javaScript의 identifier 명 적용)
+1. class="black-nav" 대신 className="black-nav"
+2. 스타일 변경은 App.css 파일에서 표현
+body{
+  font-family: 'nanum Gothic';
+}
+.black-nav {
+  background: black;
+  width: 100%;
+  display: flex;
+  color: white;
+  padding: 20px;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+3. React에서 데이터 바인딩 쉽게 하기
+jsx의 { } 안에 javascript expression 사용 가능
+예전 같으면 document.getElementById(....).innerHTML = 'xxxx' 표현 대신함
+- 기존 방법보다 추상화 됨 (선언적)
+- img 넣을때 { } 사용 
+- style 첨가할 때 <div style="font-size " 16px"> 사용 불가.
+  반드시 {} 사용하고, 그 안에 object로 정의할 것.
+  html의 font-size 는 fontSize (carmelCase 로 표현, 왜냐하면 JS이므로)
+
+
+4. useState 함수
+- import { useState } from 'react';
+- useState 함수는 두 개를 배열로 return 함수
+  [currentState, stateTransitionFunction]
+- state가 update 되면 return에 있는 JSX가 자동으로 re-rendering 됨 (새로 고침 없이)
+- state에 지정되는 것은 dynamic하게 변환되어야 하는 것을 지정함
+- state를 뱐경시킬 때는 setTransitionFunction(express)으로 수행, 이 함수는 side-effect 함수임
+
+- 이벤트 핸들러 : <span onClick={() => setCount(count + 1)}> 🧡 </span> {count}
+
+- re-rendering이 되는 이유는 useState를 통히서 상태가 바뀌는 것이 인지되기 때문이다.
+
+- 배열 내용을 변경할 때는 반드시 deep-copy를 한 다음, 이를 수정하여 return 함.
+
+
+
+
+
+
+
