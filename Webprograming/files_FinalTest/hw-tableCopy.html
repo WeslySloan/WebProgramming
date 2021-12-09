@@ -1,0 +1,65 @@
+<html>
+<style>
+  td, th { height: 20px;  width: 80px; padding: 10px;  text-align: center;  border: 1px solid;  }
+</style>
+
+<head>
+  <script>
+    window.onload = function () {
+      function click(e) {
+        cells = document.querySelectorAll("table td");
+      //   __________________________________________;
+      //   __________________________________________;
+      //   __________________________________________;
+      //   __________________________________________;
+      //   __________________________________________;
+      //   __________________________________________;
+      //   __________________________________________;
+      }
+      
+      // set onclick event for the head of each column
+      document.querySelectorAll('tr > td').forEach(td => td.onclick = click)
+    }
+  </script>
+</head>
+
+<body>
+  <table>
+    <tbody>
+      <tr>
+        <td>이름</td>
+        <td>나이</td>
+        <td>등록</td>
+        <td>점수</td>
+        <td>학과</td>
+        <td>성별</td>
+      </tr>
+      <tr>
+        <td>홍길동</td>
+        <td>28</td>
+        <td>재학</td>
+        <td>90</td>
+        <td>소프트웨어</td>
+        <td>남</td>
+      </tr>
+      <tr>
+        <td>영희</td>
+        <td>22</td>
+        <td>휴학</td>
+        <td>93</td>
+        <td>화공</td>
+        <td>여</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <hr>
+  <h2>Table의 Column 복제</h2>
+  <table>
+    <tbody id="copied">
+      <!-- 이 곳에 복제되는 내용들이 첨가됨 -->
+    </tbody>
+  </table>
+</body>
+
+</html>
