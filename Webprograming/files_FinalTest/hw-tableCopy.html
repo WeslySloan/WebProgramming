@@ -4,6 +4,45 @@
 </style>
 
 <head>
+  <script>
+    window.onload = function () {
+      function click(e) {
+        cells = document.querySelectorAll("table td");
+        // //   __________________________________________;
+        // //   __________________________________________;
+        // //   __________________________________________;
+        // //   __________________________________________;
+        // //   __________________________________________;
+        // //   __________________________________________;
+        // //   __________________________________________;
+
+        // // 1. TD 클릭 시, 몇번째 TD인지 알아낸다.
+        // // 2. 해당 인덱스에 해당 되는 TD를 전부 COPIED에 옮긴다.
+
+        const 행1셀들 = [...document.querySelectorAll("table#origin tbody tr:nth-child(1) td")] // tr들 중에서 첫번째 tr child중에서 안에있는 td를 가져온다. 배열화 하기 위함..
+        const 카피대상테이블 = document.querySelector("tbody#copied") 
+        // console.log(카피대상테이블)
+        // console.log(행1셀들)
+        행1셀들.forEach((분류셀, 열번호) => {
+          const 해당열셀들 = [...document.querySelectorAll(`table#origin tbody tr td:nth-child(${열번호 + 1})`)]
+
+          // console.log(열번호, 분류셀, 해당열셀들)
+
+          분류셀.onclick = () => {
+            카피대상테이블.innerHTML = ""
+            해당열셀들.forEach((세부셀, 행번호) => {
+              const 임시행 = document.createElement('tr')
+              임시행.appendChild(세부셀)
+              카피대상테이블.append(임시행)
+            })
+          }
+        })
+      }
+
+      // set onclick event for the head of each column
+      document.querySelectorAll('tr > td').forEach(td => td.onclick = click)
+    }
+  </script>
 </head>
 
 <body>
@@ -45,7 +84,7 @@
   </table>
 </body>
 
-<script>
+<!-- <script>
   // 1. TD 클릭 시, 몇번째 TD인지 알아낸다.
   // 2. 해당 인덱스에 해당 되는 TD를 전부 COPIED에 옮긴다.
 
@@ -71,15 +110,12 @@
       })
     }
   })
-
-
-
   // ![...document.querySelectorAll("table#origin tr td")].forEach($td => {
   //   $td.onclick = function() {
   //     console.log(this, this.parent, )
   //   }
   // })
-</script>
+</script> -->
 
 </html>
 
