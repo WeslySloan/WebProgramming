@@ -1,0 +1,2 @@
+숫자타입, 논리타입, 문자열타입 , 객체타입, null
+number, logic, string, object, null
