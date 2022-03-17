@@ -28,12 +28,12 @@ console.log("fac3(4) = ", fac3(4))
 
 // 4. 람다 함수로 표현
 var fac4 = (n) => {
-  return n <= 0 ? 1 : n * fact(n - 1);
+  return x <= 0 ? 1 : x * fact(x - 1);
 }
 console.log("fac4(4) = ", fac4(4))
 
-// 5. 중괄호 및 return이 생략된 람다 함수로 표현 : 함수형 프로그래밍 
-var fac5 = (n) => (n <= 0) ? 1 : n * fac5(n - 1);
-console.log("fac5(4) = ", fac5(4))
+// // 5. 중괄호 및 return이 생략된 람다 함수로 표현 : 함수형 프로그래밍 
+// var fac5 = _______________________;
+// console.log("fac5(4) = ", fac5(4))
 
 
