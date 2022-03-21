@@ -8,8 +8,11 @@
 
   <script>
     function handleOnclick(obj) {
-      ____________________________;
-      _________________________;
+      p.onclick = function onclick(obj) {
+        this.innerHTML = "handleOnclick에서 수행되었습니다."
+      }
+      // ____________________________;
+      // _________________________;
     }
 
     let p = document.getElementById("demo");

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+  <h1>Window Document Object</h1>
+  <h2>The URL Property</h2>
+
+  <p id="demo"></p>
+
+  <script>
+    let url = window.document.URL;
+    document.getElementById("demo").innerHTML = url;
+  </script>
+
+  <hr>
+  <ul>
+    <h3>DOM 객체</h3>
+    <li> HTML 문서는 웹 브라우저에 의해 JS의 객체로 변환된다.</li>
+    <li> HTML의 태그와 JS의 객체 모두 <mark>tree</mark> 구조를 표현하며, 이 둘은 1-1 대응 관계이다</li>
+    <li> 변환된 것은 JS 객체이므로, 이들은 JS 프로프그램에 의해서 처리될 수 있다</li>
+    <li> 변환된 HTML 객체 root의 변수 이름은 <mark>document</mark> 이다. 따라서 HTML은 document.xxx 형태로 접근한다 </li>
+    <li> document 객체는 웹브라우저의 window 객체의 한 프로퍼티이다. 따라서 <mark>window.document.xxx</mark>
+      형태로도 접근할 수도 있다 </li>
+  </ul>
+  <hr>
+  <ul>
+    <h3>프로그램 설명</h3>
+    <li> HTML이 load될 때 태그의 내용들이 화면에 display된다. </li>
+    <li> h1과 h2의 내용이 display되며, p는 내용이 없는 상태이다 </li>
+    <li> 각 DOM 객체는 화면에 display되는 내용을 <mark>innerHTML</mark> 프로퍼티에 저장한다.</li>
+    <li> script 내의 js 코드가 실행되면서, demo (p 태그의 위치) 의 innerHTML에 url 값을 할당한다 </li>
+    <li> 이렇게 DOM 객체의 내용이 수정되면 웹 브라우저는 이 내용을 re-display한다</li>
+    <li> window.document.URL 의 값은 환경에 따라 다르게 표현될 수 있다</li>
+  </ul>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  <h1>Window Document Object</h1>
+  <h2>The URL Property</h2>
+  <p id="demo">클릭하세요</p>
+
+  <script>
+    function handleOnclick(obj) {
+      obj.innerHTML = "온 클릭 핸들로 수행되었습니다"
+    }
+
+    let p = document.getElementById("demo");
+    // p.addEventListener("click", function () {
+    //   this.innerHTML = "클릭되었습니다"
+    // });
+    p.addEventListener("click", () => handleOnclick(p));
+  </script>
+</body>
+
+</html>
