@@ -6,25 +6,24 @@
 */
 
 // name : , id : , scores :
-const stud1 = { ... };
+const stud1 = { name : "", id : 0, scores : { pl : 0, web : 0}};
+const stud2 = { name : "", id : 0, scores : { pl : 0, web : 0}};
+const stud3 = { name : "", id : 0, scores : { pl : 0, web : 0}};
 
-const stud2 = { ... };
-
-const stud3 = { ... };
-
-
-var students = [stud1, stud2, stud3];
+const students = [stud1, stud2, stud3];
 
 // for ... of 를 이용하여 각 학생의 web 값을 출력함 
 for (s of students) {
-  console.log(____________)
+  console.log(s.scores.web)
 }
 
 // 2. constructor functions 으로 객체 구성
 // 위의 Literal 과 동일한 구조를 갖는 객체들을 new Student(....) 로 생성
 
 function Student(name, id, pl, web) {
-  . . . . . .
+  this.name = name 
+  this.id = id 
+  this.scores = {pl, web}
 }
 
 var students2 = [
@@ -35,8 +34,10 @@ var students2 = [
 
 // for ... of 를 이용하여 각 학생의 web 값을 출력함 
 for (s of students2) {
-  console.log( . . . .)
+  console.log(s.scores.web)
 }
-
+// students2.forEach(s => {
+//   s.scores.pl
+// })
 
 

@@ -8,9 +8,12 @@
 
   <script>
     function handleOnclick(obj) {
-      p.onclick = function onclick(obj) {
-        this.innerHTML = "handleOnclick에서 수행되었습니다."
-      }
+        obj.innerHTML = "handleOnclick에서 수행되었습니다."
+        obj.style.color = 'red'
+      // p.onclick = function onclick(obj) {
+      //   this.innerHTML = "handleOnclick에서 수행되었습니다."
+      //   this.style.color = 'red'
+      // }
       // ____________________________;
       // _________________________;
     }
