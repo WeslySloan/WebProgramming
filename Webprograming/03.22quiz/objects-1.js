@@ -6,9 +6,9 @@
 */
 
 // name : , id : , scores :
-const stud1 = { name : "", id : 0, scores : { pl : 0, web : 0}};
-const stud2 = { name : "", id : 0, scores : { pl : 0, web : 0}};
-const stud3 = { name : "", id : 0, scores : { pl : 0, web : 0}};
+const stud1 = { name : "lee", id : 14, scores : { pl : 78, web : 67}};
+const stud2 = { name : "hong", id : 15, scores : { pl : 68, web : 96}};
+const stud3 = { name : "jeong", id : 16, scores : { pl : 98, web : 87}};
 
 const students = [stud1, stud2, stud3];
 

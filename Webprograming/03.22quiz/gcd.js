@@ -35,9 +35,10 @@ const gcdRec = (x, y) => {
 }
 
 // 4. By recursive, arrow, and ternary expression
-const gcd = (x, y) => (y === 0) ? 0 : gcd(y, x % y);
+const gcd = (x, y) => (y === 0) ? x : gcd(y, x % y);
 
 console.log(gcdLoop(16, 24))   // 8
 console.log(gcdLoop2(16, 24))  // 8
 console.log(gcdRec(16, 24))    // 8
 console.log(gcd(16, 24))       // 8
+
