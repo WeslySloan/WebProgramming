@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script>
+    window.addEventListener('load', () => {
+      document.getElementById('btn').addEventListener("click", () => {
+        let x = parseInt(document.getElementById('txt-x').value);
+        let y = parseInt(document.getElementById('txt-y').value);
+        let op = document.getElementById('ops').value;
+        let result = document.getElementById('txt-result');
+        switch (op) {
+          case '+':
+            result.value = x + y;
+            break;
+          case '-':
+            result.value = x - y;
+            break;
+          case '*':
+            result.value = x * y;
+            break;
+          case '/':
+            result.value = x / y;
+            break;
+          default:
+            alert('지원하지 않는 연산자입니다.');
+        };
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <h3>계산기 프로그램 : load 이벤트 핸들러에서 click 핸들러 세팅하기</h3>
+  <li>전체 프로그램이 모두 load 된 후, 이를 알려주는 load 이벤트가 발생함</li>
+  <li>이 시점에서 다른 필요한 이벤트 핸들러는 설정함</li>
+  <li>일반적으로 한 프로그램은 여러 개의 파일을 import 하는 형태로 구성될 수 있으며,
+    이 경우 각 import의 시점에 따라 환경이 구축됨. 이 상황을 제어는 어려움을 load 이벤트로서 해결할 수 있음.
+  </li>
+  <hr>
+  <div>
+    <input id="txt-x" type="text" value="0" dir="rtl" />
+    <select id="ops">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+    </select>
+    <input id="txt-y" type="text" value="0" dir="rtl" />
+    <input id="btn" type="button" value="=" />
+    <input id="txt-result" type="text" value="0" readonly dir="rtl" />
+  </div>
+
+</body>
+
+</html>

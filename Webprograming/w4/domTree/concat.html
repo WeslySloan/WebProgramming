@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+
+<head>
+  <title>Concatenation</title>
+  <script>
+    window.onload = () => {
+      btn.addEventListener("click", function () {
+        let p = document.createElement("p");     // create <p> node
+        p.innerText = "이것은 <p> 입니다."
+        document.getElementsByTagName('body')[0].appendChild(p);
+        li1.innerHTML = li1.innerHTML + " : " + li2.innerHTML + ' : ' + li3.innerHTML;
+        p.appendChild(li1);
+        li2.remove(); li3.remove(); this.remove();
+      });
+    }
+  </script>
+</head>
+
+<body>
+  <li id="li1">first item</li>
+  <li id="li2">second item</li>
+  <li id="li3">third item</li>
+  <button id='btn'>병합</button>
+</body>
+
+</html>

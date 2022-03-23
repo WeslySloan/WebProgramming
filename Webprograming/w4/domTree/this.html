@@ -1,0 +1,29 @@
+< !DOCTYPE html>
+  <html>
+
+  <body>
+    <h2>Top-level의 실행 객체</h2>
+
+    <script>
+      var a = ' a';
+      var name = 'top-level';
+      let obj1 = {
+        name: 'obj1',
+        fun: function () { return this.name + a; },
+        lam: () => this.name + a,
+        obj2: {
+          name: 'obj2',
+          fun: function () { return this.name + a; },
+          lam: () => this.name + a,
+        }
+      };
+
+      console.log(obj1.fun());          // obj1 a
+      console.log(obj1.lam());          // top-level a
+      console.log(obj1.obj2.fun());     // obj2 a
+      console.log(obj1.obj2.lam());     // top-level a
+
+    </script>
+  </body>
+
+  </html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+
+<body>
+  <p> <span>A</span> </p>
+  <!-- <span style="color:red"> New String</span> -->
+  <ul>
+    <li>10</li>
+    <li>20<span id="span">KS</span></li>
+  </ul>
+</body>
+
+<script>
+  let span = document.getElementById("span");
+  console.log(span.parentElement.innerHTML.split("<")[0]);                     // 20
+  console.log(span.innerHTML + span.parentElement.innerHTML.split("<")[0]);    // KS20
+  console.log(span.parentElement.innerText);                                   // 20KS
+  console.log(span.parentElement.parentElement.firstElementChild.innerHTML);   // 10
+  console.log(span.parentElement.parentElement.parentElement.innerText);       // A\n\n10\n20KS
+
+  let newElement = document.createElement("span");
+  newElement.innerHTML = " New String";
+  newElement.style.color = "red";
+  let p = document.getElementsByTagName("p");
+  p[0].appendChild(newElement);
+</script>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Loading</title>
+</head>
+
+<body>
+	<h3>Fixing bug: move the tag including id=mySpan</h3>
+	<hr>
+	<p style="color:blue">This is
+		<span id="mySpan" style="color:red">a p tag</span>
+	</p>
+
+	<script>
+		var span = document.getElementById("mySpan"); // find mySpan
+		span.style.color = "green"; // 글자 색 green
+		span.style.fontSize = "30px"; // 글자 크기는 30픽셀
+		span.style.display = "block"; // 블록 박스로 변경
+		span.style.width = "6em"; // 박스의 폭. 6 글자 크기
+		span.style.border = "3px dotted magenta"; // 3픽셀 점선 magenta 테두리
+	</script>
+
+	<input id='btn' type="button" value="style change">
+
+</body>
+
+</html>

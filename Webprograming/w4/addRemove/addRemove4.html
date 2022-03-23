@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+
+<head>
+  <title>Refactoring using Lambda and this</title>
+  <script>
+    window.onload = () => {
+      document.getElementsByTagName('button')[0]       // the first button
+        .addEventListener("click", function () {
+          var newItem = document.createElement("li");  // new node
+          newItem.innerHTML = "new item";
+          newItem.style.backgroundColor = "yellow";
+
+          document.getElementsByTagName("ol")[0]       // the first ol
+            .appendChild(newItem);
+
+          this.remove();                               // remove button
+        });
+    }
+  </script>
+</head>
+
+<body>
+  <h3>Refactoring (변수 및 함수 갯 수 줄이기)</h3>
+  <p>목적: 가독성을 위하여, (결과 값의 변경 없이) 이미 작성된 코드를 간결하게 재조정한다. 아래의 코드를 refactoring 함</p>
+  <hr>
+  <code><pre>
+    // addRemove3
+    window.onload = function () {
+      var btn = document.getElementsByTagName('button')[0]; // the first button
+      btn.addEventListener('click', f);                     // set click handler
+    }
+
+    function f() {
+      var newItem = document.createElement('li');           // new li node
+      newItem.innerHTML = "new item";
+      newItem.style.backgroundColor = "yellow";
+
+      var ol = document.getElementsByTagName('ol')[0];      // the first ol
+      ol.appendChild(newItem);
+
+      var btn = document.getElementsByTagName('button')[0];  // the first button
+      btn.remove();
+    }
+  </pre></code>
+  <hr>
+
+  <li>위의 함수는 2개로 구성됨에 따라 button에 대한 node (btn)를 찾기 위한 코드가 2번 나타남</li>
+  <li>위의 코드에서 변수 btn을 제거할 수 있음</li>
+  <li>이때, 필요에 따라 줄 바꿈 등을 적용함으로써 코드의 가독성을 높임</li>
+  <li>가능 한 람다 식과 this를 적용함</li>
+  <li>f() 를 무명 함수로 표현하고, 이를 btn 객체의 onclick 프로퍼티에 연결함 </li>
+  <li>Refactoring은 정답이 없으므로, 여러 형태로 표현해 볼 것을 권장함</li>
+  <li>button click 핸들러 표현에 addEventListener를 사용할 지는 취향에 따라 결정</li>
+
+  <hr>
+  <ol>
+    <li>first item</li>
+    <li>second item</li>
+    <li>third item</li>
+  </ol>
+  <button>추가</button>
+</body>
+
+</html>

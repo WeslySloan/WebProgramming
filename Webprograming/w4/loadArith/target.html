@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+
+<body>
+  <h2>event의 target과 currentTarget 이해하기</h2>
+  <li> 아래의 div 태그는 span과 div를 자식으로 구성하고 있으며,
+    click 이벤트 핸들러를 설정하고 있음</li>
+  <li>따라서, 화면에 보여지는 test와 Anohter Div를 클릭하면 checkTarget이 실행됨</li>
+  <li>chekTarget에서는 console로 내용을 출력함</li>
+  <li>event.type의 click</li>
+  <li>event.target은 해당 태그.
+    즉, test를 클릭할 때는 span이고, Another Div를 클랙할 때는 child에 있는 div가 됨 </li>
+  <li>event.currentTarget은 이벤트를 발생시키는 부모 div 태그가 됨</li>
+  <hr>
+  <div onclick="checkTarget(event);">
+    <span>test</span>
+    <div>Another Div</div>
+  </div>
+
+  <script>
+    function checkTarget(event) {
+      console.log(event.type);             // click
+      console.log(event.target);           // span 혹은 div
+      console.log(event.currentTarget);    // div (parent)
+    }
+  </script>
+
+</body>
+
+</html>

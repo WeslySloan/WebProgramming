@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>DOM 노드 추가 및 제거</title>
+  <script>
+    function f() {
+      var newItem = document.createElement("li");  // new li node
+      newItem.innerHTML = "new item";
+      newItem.style.backgroundColor = "yellow";
+
+      var obj = document.getElementById("ol");     // find the ol node
+      obj.appendChild(newItem);                    // append newItem to ol
+
+      var btn = document.getElementById('btn');    // find the btn node
+      btn.remove();                                // remove btn
+      // this.remove();
+    }
+  </script>
+</head>
+
+<body>
+  <h3>DOM 노드 추가 및 삭제 : getElementById 적용</h3>
+  <li>추가 버튼을 클릭하면 맨 뒤 4번에 새로운 아이템 추가,
+    추가 버튼 삭제</li>
+  <li> 이벤트 핸들러를 위해 Tag 내에 id 및 핸드로 함수 표현</li>
+
+  <hr>
+  <ol id="ol">
+    <li>first item</li>
+    <li id="second">second item</li>
+    <li>third item</li>
+  </ol>
+  <button id="btn" onclick="f()">추가</button>
+</body>
+
+</html>

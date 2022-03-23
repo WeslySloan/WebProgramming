@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script>
+    window.onload = () => {
+      btnAdd.onclick = () => {
+        result.value = parseInt(x.value) + parseInt(y.value);
+      };
+    };
+
+  </script>
+</head>
+
+<body>
+  <h1>Calculator using id (no searching)</h1>
+
+  <hr>
+  <div>
+    <input id="x" type="text" value="0" dir="rtl" />
+    +
+    <input id="y" type="text" value="0" dir="rtl" />
+    <input id="btnAdd" type="button" value="=" />
+    <input id="result" type="text" value="0" readonly dir="rtl" />
+
+  </div>
+
+</body>
+
+</html>

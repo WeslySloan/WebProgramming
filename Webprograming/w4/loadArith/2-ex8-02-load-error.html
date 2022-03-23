@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Loading</title>
+</head>
+
+<body>
+	<h3>Loading and Execution Time</h3>
+	<li>getElementById("mySpan") cannot find the place</li>
+	<li>becuse the html including that id has not been processed yet</li>
+	<li>You can check the error in the conose</li>
+	<hr>
+	<script>
+		var span = document.getElementById("mySpan"); // find an object with id=mySpan
+		console.log(span == null);  // true, not found
+		span.style.color = "green";
+		span.style.fontSize = "30px";
+		span.style.display = "block";
+		span.style.width = "6em";
+		span.style.border = "3px dotted magenta"; 
+	</script>
+
+	<p style="color:blue">This is
+		<span id="mySpan" style="color:red"> a p tag </span>
+	</p>
+
+	<input id='btn' type="button" value="style change">
+
+</body>
+
+</html>

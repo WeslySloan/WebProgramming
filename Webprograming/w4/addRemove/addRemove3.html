@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>DOM 노드 추가 및 제거</title>
+  <script>
+    window.onload = () => {
+      var btn = document.getElementsByTagName('button')[0]; // the first button
+      btn.addEventListener('click', f);                     // set click handler
+    }
+
+    function f() {
+      var newItem = document.createElement('li');           // new li node
+      newItem.innerHTML = "new item";
+      newItem.style.backgroundColor = "yellow";
+
+      var ol = document.getElementsByTagName('ol')[0];      // the first ol
+      ol.appendChild(newItem);
+
+      var btn = document.getElementsByTagName('button')[0];  // the first button
+      btn.remove();
+    }
+  </script>
+</head>
+
+<body>
+  <h3>DOM 노드 추가 및 삭제 : window.onload 및 addEventListener 적용</h3>
+  <li>HTML Tag에서는 id 및 핸들러에 대한 아무런 표현을 하지 않음</li>
+  <li>핸들러에서 getElementsByTagName 적용</li>
+  <li>load 이벤트를 script 내에서 window.onload = function () { ... } 로 표현 </li>
+  <li>onload에서 button의 click 이벤트 핸들러를 addEventListener 로 표현</li>
+  <li>DOM 노드 검색: document.getElementsByTagName('tag')[index]; </li>
+  <li>DOM 노드 생성: document.createElement('tag'); </li>
+  <li>DOM 노드 연결: parentNode.appendChild(newNode); </li>
+  <li>DOM 노드 제거: nodeName.remove();</li>
+
+  <hr>
+  <ol>
+    <li>first item</li>
+    <li>second item</li>
+    <li>third item</li>
+  </ol>
+  <button>추가</button>
+</body>
+
+</html>

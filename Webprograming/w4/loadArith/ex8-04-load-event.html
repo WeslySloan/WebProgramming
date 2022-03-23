@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>this 활용</title>
+  <script>
+    window.addEventListener('load', () => {
+      var objs = document.getElementsByTagName("button");
+      var div = document.getElementById("div");
+
+      objs[0].addEventListener("click", () => change(objs[0], "30px", "red"));
+      objs[1].addEventListener("click", (event) => change(event.target, "30px", "blue"));
+      div.addEventListener("click", () => change(div, "25px", "orange"));
+    });
+
+
+    function change(obj, size, color) {
+      obj.style.color = color;
+      obj.style.fontSize = size;
+    }
+  </script>
+</head>
+
+<body>
+  <h3>load 이벤트 핸들러에서 프로그램에서 사용되는 이벤트 핸들러들을 설정하기</h3>
+  <hr>
+  <button>버튼</button>
+  <button>버튼</button>
+  <div id="div">
+    여기 클릭하면 크기와 색 변경
+  </div>
+</body>
+
+</html>

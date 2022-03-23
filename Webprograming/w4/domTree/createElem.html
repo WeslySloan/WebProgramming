@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Test</title>
+	<script>
+		function createItem() {
+			var obj = document.getElementById("second");
+			var newItem = document.createElement("p");
+			newItem.innerHTML = "new item is inserted";
+			newItem.setAttribute("id", "newItem");
+			// newItem.style.backgroundColor = "yellow";
+			newItem.setAttribute("style", "background-color:yellow")
+			obj.appendChild(newItem);
+		}
+	</script>
+</head>
+
+<body>
+	<h3>Head-3</h3>
+	<hr>
+	<ul>
+		<li>first item</li>
+		<li id="second">second item</li>
+		<li>third item</li>
+	</ul>
+	<button onclick="createItem()">Add Item</button>
+</body>
+
+</html>
