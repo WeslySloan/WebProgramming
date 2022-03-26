@@ -6,6 +6,32 @@
 </head>
 
 <script>
+    window.onload = () => {
+      let h3 =  document.createElement("h3");
+      h3.innerText = ("CSS 스타일 동적 변경");
+      document.getElementsByTagName('body')[0].appendChild(h3);
+
+      let hr =  document.createElement("hr");
+      document.getElementsByTagName('body')[0].appendChild(hr);
+      
+      let p = document.createElement("p");     // create <p> node
+      p.innerText = ("이것은 ");
+      p.style.color = "blue";
+      document.getElementsByTagName('body')[0].appendChild(p);
+      let span = document.createElement("span");
+      span.setAttribute("id", "mySpan");
+      span.innerText = ("문장입니다.");
+      span.style.color = "red";
+      document.getElementsByTagName('p')[0].appendChild(span);
+
+      let input = document.createElement('input');
+      input.setAttribute('type', 'button');
+      input.setAttribute('value', "스타일변경");
+      document.getElementsByTagName('body')[0].appendChild(input);
+      input.onclick = change
+
+    };
+
   function change() {
     var span = document.getElementById("mySpan"); // id가 mySpan인 객체 찾기
     span.style.color = "green"; // 글자 색 green
