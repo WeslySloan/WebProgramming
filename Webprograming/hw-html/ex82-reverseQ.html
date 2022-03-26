@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>CSS 스타일 동적 변경</title>
+</head>
+
+<script>
+    window.onload = () => {
+     let h3 =  document.createElement("h3");
+      h3.innerText = ("CSS 스타일 동적 변경");
+      document.getElementsByTagName('body')[0].appendChild(h3);
+
+      let hr =  document.createElement("hr");
+    //   hr.setAttribute("id", "hrid");
+      document.getElementsByTagName('body')[0].appendChild(hr);
+      
+      let p = document.createElement("p");     // create <p> node
+      p.innerText = ("이것은 ");
+      p.style.color = "blue";
+      document.getElementsByTagName('body')[0].appendChild(p);
+      let span = document.createElement("span");
+      span.setAttribute("id", "mySpan");
+      span.innerText = ("문장입니다.");
+      span.style.color = "red";
+      document.getElementsByTagName('p')[0].appendChild(span);
+
+      let input = document.createElement('input');
+      input.setAttribute('type', 'button');
+      input.setAttribute('value', "스타일변경");
+      document.getElementsByTagName('body')[0].appendChild(input);
+      input.onclick = () => {
+        // document.getElementByTagName("hr")[0].appendChild(input);
+        change()
+        document.getElementsByTagName("hr")[0].appendChild(input);
+        // document.getElementById(hrid)[0].appendChild(input);
+        // input.remove()
+      }
+
+    };
+
+  function change() {
+    var span = document.getElementById("mySpan"); // id가 mySpan인 객체 찾기
+    span.style.color = "green"; // 글자 색 green
+    span.style.fontSize = "30px"; // 글자 크기는 30픽셀
+    span.style.display = "block"; // 블록 박스로 변경
+    span.style.width = "6em"; // 박스의 폭. 6 글자 크기
+    span.style.border = "3px dotted magenta"; // 3픽셀 점선 magenta 테두리
+    span.style.margin = "20px"; // 상하좌우 여백 20px
+  }
+</script>
+
+<body>
+</body>
+
+</html>
