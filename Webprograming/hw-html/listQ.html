@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>List Reordering</title>
+</head>
+
+<script>
+    console.log("reverse out")
+    function reverse() {
+        console.log("reverse in")
+        var listToModify = document.querySelector("ul");
+        var listItemsToShuffle = listToModify.querySelectorAll("li");
+        // for (var i = 0; i < listItemsToShuffle.length - 1; i++) {
+        //     listToModify.appendChild(listItemsToShuffle[i]);
+        // }
+        listToModify.appendChild(listItemsToShuffle[0]);
+    }
+</script>
+
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script> -->
+
+<body>
+  <ul> Five Elements
+    <li>11</li>
+    <li>22</li>
+    <li>33</li>
+    <li>44</li>
+    <li>55</li>
+  </ul>
+  <button onclick="reverse()"> Reverse </button>
+
+</body>
+
+<!-- <script>
+    var __ListItem = document.getElementById("listItemId");
+        function __shuffleList() {
+            var __nodes = __ListItem .children, i = 0;
+            __nodes = Array.prototype.sort.call(__nodes );
+            while(i < __nodes .length) {
+                __ListItem .appendChild(__nodes [i]);
+                ++i;
+                }
+        }
+    __shuffleList();
+</script> -->
+
+<!-- <script>
+    function reverse() {
+        var 
+    }
+</script> -->
+
+</html>
