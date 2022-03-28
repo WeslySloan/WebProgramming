@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>List Reordering</title>
+</head>
+
+<script>
+    function reverse() {
+        var listToModify = document.querySelector("ul");
+        var listItemsToShuffle = listToModify.querySelectorAll("li");
+        // for (var i = 0; i < listItemsToShuffle.length - 1; i++) {
+        //     listToModify.appendChild(listItemsToShuffle[i]);
+        // }
+        listToModify.appendChild(listItemsToShuffle[0]);
+    }
+</script>
+
+<body>
+  <ul> Five Elements
+    <li>11</li>
+    <li>22</li>
+    <li>33</li>
+    <li>44</li>
+    <li>55</li>
+  </ul>
+  <button onclick="reverse()"> Reverse </button>
+
+</body>
+
+</html>

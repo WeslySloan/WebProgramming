@@ -6,15 +6,21 @@
 </head>
 
 <script>
-    console.log("reverse out")
     function reverse() {
-        console.log("reverse in")
         var listToModify = document.querySelector("ul");
-        var listItemsToShuffle = listToModify.querySelectorAll("li");
-        // for (var i = 0; i < listItemsToShuffle.length - 1; i++) {
-        //     listToModify.appendChild(listItemsToShuffle[i]);
-        // }
-        listToModify.appendChild(listItemsToShuffle[0]);
+        var listItemsToShuffle = [...listToModify.querySelectorAll("li")];
+        // listItemsToShuffle -> listmodify 한것 파괴연산자로 노드에서 배열화
+
+        // console.log(listItemsToShuffle);
+        // console.log(EXlistItemsToShuffle);
+        
+        var EXlistItemsToShuffle = listToModify.querySelectorAll("li");
+        for (var i = listItemsToShuffle.length - 1; i >= 0; i--) {
+            listToModify.appendChild(EXlistItemsToShuffle[i]);
+        }
+
+        // console.log(listItemsToShuffle);
+        // console.log(EXlistItemsToShuffle);
     }
 </script>
 
@@ -50,5 +56,6 @@
         var 
     }
 </script> -->
+
 
 </html>
