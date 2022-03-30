@@ -1,12 +1,25 @@
-import Ex82multiComp from './w5/code/Ex82multiComp';
+import React from 'react'
 
 export default function App() { 
+  document.title='첫 타이틀 '
   return (
     <div> 
-      <Ex82multiComp />
+      페이지에 타이틀 
     </div>
   )
 }
+
+// import Ex82multiComp from './w5/code/Ex82multiComp';
+
+// export default function App() { 
+//   return (
+//     <div> 
+//       <Ex82multiComp />
+//     </div>
+//   )
+// }
+
+//////////////////////
 
 // import logo from './logo.svg';
 // import './App.css';
