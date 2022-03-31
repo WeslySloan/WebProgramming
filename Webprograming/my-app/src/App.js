@@ -4,7 +4,8 @@ export default function App() {
   document.title='첫 타이틀 '
   return (
     <div> 
-      페이지에 타이틀 
+      <h1>1장 홈페이지 만들기</h1>
+      <h2>1절 HTML</h2>
     </div>
   )
 }
