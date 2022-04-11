@@ -21,15 +21,15 @@ const calculator = () => {
   return (
     <div>
         <h3>계산기 프로그램</h3>
-  <p>더 하기 </p>
-  <hr/>
-  <div>
-    <input id="txt-x" type="text" value="0" dir="rtl" />
-    +
-    <input id="txt-y" type="text" value="0" dir="rtl" />
-    <input id="btn-add" type="button" value="=" />
-    <input id="txt-result" type="text" value="0" readonly dir="rtl" />
-  </div>
+        <p>더 하기 </p>
+        <hr/>
+        <div>
+            <input id="txt-x" type="text" value="0" dir="rtl" />
+            +
+            <input id="txt-y" type="text" value="0" dir="rtl" />
+            <input id="btn-add" type="button" value="=" />
+            <input id="txt-result" type="text" value="0" readonly dir="rtl" />
+        </div>
     </div>
   );
   
