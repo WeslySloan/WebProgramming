@@ -16,7 +16,14 @@ const calculator = () => {
     //     };
     //   }); -- > ust state
 
+  const [number, setNumber] = useState<number>(0)
 
+  var txtx = document.getElementById("txt-x");
+  var txty = document.getElementById("txt-y");
+
+  const equal = () => {
+    setNumber(number+txtx+txty);
+  }
 
   return (
     <div>
@@ -27,7 +34,7 @@ const calculator = () => {
             <input id="txt-x" type="text" value="0" dir="rtl" />
             +
             <input id="txt-y" type="text" value="0" dir="rtl" />
-            <input id="btn-add" type="button" value="=" />
+            <input id="btn-add" type="button" value="=" onClick={equal}/>
             <input id="txt-result" type="text" value="0" readonly dir="rtl" />
         </div>
     </div>
