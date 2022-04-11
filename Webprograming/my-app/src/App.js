@@ -14,13 +14,14 @@ const Ex810 = () => {
         };
         obj.appendChild(newDIV);
     }
+
     function createA() {
       const a = document.createElement("a");
       a.innerHTML = "DIV 생성"
       a.href="javascript:creatDIV()"
     //   a.SetAttribute("link");
       a.onclick = () => createDIV();
-      body.appendChild(a);
+      div.appendChild(a);
     }
     
     return (
