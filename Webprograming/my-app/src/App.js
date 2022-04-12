@@ -1,40 +1,215 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+import './Game.css';
 
-const calculator = () => {
+// To add onclick handler
+// useState, clicking the button changes into X
 
-  const [number, setNumber] = useState<number>(0)
-
-  var txtx = document.getElementById("txt-x");
-  var txty = document.getElementById("txt-y");
-  var btnadd = document.getElementById("btn-add");
-  var result = document.getElementById("txt-result");
-
-  btnadd.onclick = function () {
-    result.value = setNumber(number+txtx+txty);
-  };
-
-  // const equal = () => {
-  //   setNumber(number+txtx+txty);
-  // }
-
+const Game = () => {
   return (
-    <div>
-        <h3>계산기 프로그램</h3>
-        <p>더 하기 </p>
-        <hr/>
-        <div>
-            <input id="txt-x" type="text" value="0" dir="rtl" />
-            +
-            <input id="txt-y" type="text" value="0" dir="rtl" />
-            <input id="btn-add" type="button" value="=" />
-            <input id="txt-result" type="text" value="0" readonly dir="rtl" />
-        </div>
+    <div className="game">
+      <div className="game-board">
+        <Board />
+      </div>
+      <div className="game-info">
+        <div>{/* status */}</div>
+        <ol>{/* TODO */}</ol>
+      </div>
     </div>
   );
-  
-};
+}
 
-export default calculator;
+const Board = () => {
+  const renderSquare = (i) =>  <Square />
+  const status = 'Next player: X';
+  return (
+    <div>
+        <div className="status">{status}</div>
+        <div className="board-row">
+          {renderSquare(0)}
+          {renderSquare(1)}
+          {renderSquare(2)}
+        </div>
+        <div className="board-row">
+          {renderSquare(3)}
+          {renderSquare(4)}
+          {renderSquare(5)}
+        </div>
+        <div className="board-row">
+          {renderSquare(6)}
+          {renderSquare(7)}
+          {renderSquare(8)}
+        </div>
+      </div>
+  )
+}
+
+const Square = () => {
+  const [state, setState] = useState({value: null})
+  return (
+    <button  
+      className="square"  
+      onClick={() => setState({value: 'X'})}
+    >
+      {state.value}
+    </button>
+  )
+}
+
+export default Game;
+
+// import React, { useState } from 'react';
+// import './Game.css';
+
+// // To add onclick handler
+// // useState, clicking the button changes into X
+
+// let globalFlag = false
+// const useNext = () => {
+//   const [flag, setFlag] = useState(globalFlag)
+//   return [flag, () => {
+//     setFlag(!globalFlag)
+//     return globalFlag
+//   }]
+// }
+
+// const Game = () => {
+//   return (
+//     <div className="game">
+//       <div className="game-board">
+//         <Board />
+//       </div>
+//       <div className="game-info">
+//         <div>{/* status */}</div>
+//         <ol>{/* TODO */}</ol>
+//       </div>
+//     </div>
+//   );
+// }
+
+
+// const Board = () => {
+//   const [flag] = useNext();
+//   return (
+//     <div>
+//         <div className="status">Next player: {flag ? "O": "X" }</div>
+//         <div className="board-row">
+//         <Square />
+//         <Square />
+//         <Square />
+//         </div>
+//         <div className="board-row">
+//         <Square />
+//         <Square />
+//         <Square />
+//         </div>
+//         <div className="board-row">
+//         <Square />
+//         <Square />
+//         <Square />
+//         </div>
+//       </div>
+//   )
+// }
+
+// const Square = () => {
+//   const [state, setState] = useState(null) 
+//     const [flag, setFlag] = useNext();
+//   return (
+//     <button  
+//       className="square"  
+//       onClick={() => {
+//         console.log(flag)
+//         if ( state === null ) {
+//           setState(setFlag() ? "O": "X")
+//         }
+//       }}
+//     >
+//       {state ?? state} 
+//     </button>
+//   )
+// }
+
+// export default Game;
+
+// import React, { useState } from 'react';
+
+// const Calculator = () => {
+
+//   const [x, setX] = useState(0)
+//   const [y, setY] = useState(0)
+//   const [sum, setSum] = useState(0)
+
+//   return (
+//     <div>
+//         <h3>계산기 프로그램</h3>
+//         <p>더 하기 </p>
+//         <hr/>
+//         <div>
+//             <input type="text" defaultValue="0" dir="rtl" onChange={(e) => {
+//               setX(parseInt(e.target.value)) 
+//             }}></input>
+//             +
+//             <input type="text" defaultValue="0" dir="rtl" onChange={(e) => {
+//               setY(parseInt(e.target.value)) 
+//             }}></input>
+//             <input type="button" defaultValue="=" onClick={() => {
+//               setSum(x+y);
+//             }}/>
+//             <input type="text" value = {sum} dir="rtl" readOnly = "true" />
+//         </div>
+//     </div>
+//   );
+  
+// };
+
+// export default Calculator;
+
+// import React, { useState } from 'react';
+
+// const Calculator = () => {
+
+//   const [x, setX] = useState(0)
+//   const [y, setY] = useState(0)
+//   const [sum, setSum] = useState(0)
+
+//   // const equal = () => {
+//   //   setNumber(number+txtx+txty);
+//   // }
+
+//   return (
+//     <div>
+//         <h3>계산기 프로그램</h3>
+//         <p>더 하기 </p>
+//         <hr/>
+//         <div>
+//             <input type="text" defaultValue="0" dir="rtl" onChange={(e) => {
+//               setX(parseInt(e.target.value)) 
+//             }}></input>
+//             <input type="button" defaultValue="+" onClick={() => {
+//               setSum(x+y);
+//             }}/>
+//             <input type="button" defaultValue="-" onClick={() => {
+//               setSum(x-y);
+//             }}/>
+//             <input type="button" defaultValue="*" onClick={() => {
+//               setSum(x*y);
+//             }}/>
+//             <input type="button" defaultValue="/" onClick={() => {
+//               setSum(x/y);
+//             }}/>
+          
+//             <input type="text" defaultValue="0" dir="rtl" onChange={(e) => {
+//               setY(parseInt(e.target.value)) 
+//             }}></input>
+//           =
+//             <input type="text" value = {sum} dir="rtl" readOnly = "true" />
+//         </div>
+//     </div>
+//   );
+  
+// };
+
+// export default Calculator;
 
 // import React from 'react';
 

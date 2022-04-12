@@ -1,29 +1,14 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
-const calculator = () => {
+const Calculator = () => {
 
-    // window.addEventListener("load", function () {
-    //     var txtx = document.getElementById("txt-x");
-    //     var txty = document.getElementById("txt-y");
-    //     var btnadd = document.getElementById("btn-add");
-    //     var result = document.getElementById("txt-result");
+  const [x, setX] = useState(0)
+  const [y, setY] = useState(0)
+  const [sum, setSum] = useState(0)
 
-    //     btnadd.onclick = function () {
-    //       var x = parseInt(txtx.value);
-    //       var y = parseInt(txty.value);
-
-    //       result.value = x + y;
-    //     };
-    //   }); -- > ust state
-
-  const [number, setNumber] = useState<number>(0)
-
-  var txtx = document.getElementById("txt-x");
-  var txty = document.getElementById("txt-y");
-
-  const equal = () => {
-    setNumber(number+txtx+txty);
-  }
+  // const equal = () => {
+  //   setNumber(number+txtx+txty);
+  // }
 
   return (
     <div>
@@ -31,15 +16,21 @@ const calculator = () => {
         <p>더 하기 </p>
         <hr/>
         <div>
-            <input id="txt-x" type="text" value="0" dir="rtl" />
+            <input type="text" defaultValue="0" dir="rtl" onChange={(e) => {
+              setX(parseInt(e.target.value)) 
+            }}></input>
             +
-            <input id="txt-y" type="text" value="0" dir="rtl" />
-            <input id="btn-add" type="button" value="=" onClick={equal}/>
-            <input id="txt-result" type="text" value="0" readonly dir="rtl" />
+            <input type="text" defaultValue="0" dir="rtl" onChange={(e) => {
+              setY(parseInt(e.target.value)) 
+            }}></input>
+            <input type="button" defaultValue="=" onClick={() => {
+              setSum(x+y);
+            }}/>
+            <input type="text" value = {sum} dir="rtl" readOnly = "true" />
         </div>
     </div>
   );
   
 };
 
-export default calculator;
+export default Calculator;

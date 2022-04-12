@@ -17,7 +17,7 @@ const Index = () => {
       Hello world! { counter }
     </div>
     <input type="text" name="name" onChange={(e) => {
-      setPhone(e.target.value)
+      setPhone(e.target.value) // e.=  native event
     }}></input>
     {phone}{validPhone.toString()}
   </>
