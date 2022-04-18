@@ -1,61 +1,99 @@
-import React, { useState } from 'react';
-import './Game.css';
+import { useState } from 'react';
 
-// To add onclick handler
-// useState, clicking the button changes into X
+// Todo List에 추가하는 것 까지 
 
-const Game = () => {
+const TodoAdd = () => {
+  const [todo, setTodo] = useState('')    // object (todo)
+  const [todos, setTodos] = useState([])  // array of objects
+
+  const handleInput = e => {
+    setTodo(e.target.value) 
+  }
+
+  
+
+  const handleAdd = e => {
+    // e.preventDefault();
+    if (todo === "") return;
+    setTodos([...todos,todo])
+    setTodo('');
+  }
+
   return (
-    <div className="game">
-      <div className="game-board">
-        <Board />
-      </div>
-      <div className="game-info">
-        <div>{/* status */}</div>
-        <ol>{/* TODO */}</ol>
-      </div>
+    <div>
+      <h3>Todo List</h3>
+      <ul>
+        {
+          todos.map((a, idx) => <li key={idx}>{a}</li>)
+        }
+      </ul>
+      <input onChange={handleInput} />
+      <button onClick={handleAdd}>Add</button>
     </div>
   );
 }
+// useRef를 써야 input의 value를 변경 할 수 있는걸로 아는데
 
-const Board = () => {
-  const renderSquare = (i) =>  <Square />
-  const status = 'Next player: X';
-  return (
-    <div>
-        <div className="status">{status}</div>
-        <div className="board-row">
-          {renderSquare(0)}
-          {renderSquare(1)}
-          {renderSquare(2)}
-        </div>
-        <div className="board-row">
-          {renderSquare(3)}
-          {renderSquare(4)}
-          {renderSquare(5)}
-        </div>
-        <div className="board-row">
-          {renderSquare(6)}
-          {renderSquare(7)}
-          {renderSquare(8)}
-        </div>
-      </div>
-  )
-}
+export default TodoAdd;
 
-const Square = () => {
-  const [state, setState] = useState({value: null})
-  return (
-    <button  
-      className="square"  
-      onClick={() => setState({value: 'X'})}
-    >
-      {state.value}
-    </button>
-  )
-}
+// import React, { useState } from 'react';
+// import './Game.css';
 
-export default Game;
+// // To add onclick handler
+// // useState, clicking the button changes into X
+
+// const Game = () => {
+//   return (
+//     <div className="game">
+//       <div className="game-board">
+//         <Board />
+//       </div>
+//       <div className="game-info">
+//         <div>{/* status */}</div>
+//         <ol>{/* TODO */}</ol>
+//       </div>
+//     </div>
+//   );
+// }
+
+// const Board = () => {
+//   const renderSquare = (i) =>  <Square />
+//   const status = 'Next player: X';
+//   return (
+//     <div>
+//         <div className="status">{status}</div>
+//         <div className="board-row">
+//           {renderSquare(0)}
+//           {renderSquare(1)}
+//           {renderSquare(2)}
+//         </div>
+//         <div className="board-row">
+//           {renderSquare(3)}
+//           {renderSquare(4)}
+//           {renderSquare(5)}
+//         </div>
+//         <div className="board-row">
+//           {renderSquare(6)}
+//           {renderSquare(7)}
+//           {renderSquare(8)}
+//         </div>
+//       </div>
+//   )
+// }
+
+// const Square = () => {
+//   const [state, setState] = useState({value: null})
+//   return (
+//     <button  
+//       className="square"  
+//       onClick={() => setState({value: 'X'})}
+//     >
+//       {state.value}
+//     </button>
+//   )
+// }
+
+// export default Game;
 
 // import React, { useState } from 'react';
 // import './Game.css';
