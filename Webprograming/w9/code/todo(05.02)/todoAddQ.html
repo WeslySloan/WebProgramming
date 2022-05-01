@@ -10,14 +10,8 @@
     const ul = document.getElementById("ul");
     const input = document.getElementById("input");
     const btn = document.getElementById("btn");
-    const span = document.getElementById("span");
     btn.onclick = () => {
-      let li = document.createElement('div')
-      li.innerHTML = '<input type ="checkbox">' + input.value; 
-      ul.appendChild(li)
-      input.value = ""
-      span.innerHTML = ul.childElementCount;
-    }
+      // 이곳을 채우세요
   });
 </script>
 
@@ -26,11 +20,7 @@
   <ul id="ul"></ul>
   <input id="input" type="text" value="" dir="rtl">
   <button id="btn">Add</button>
-  <div>
-    Numbers : <span id = "span">0</span>
-  </div>
 </body>
-
 </html>
 
 <!-- 
@@ -38,3 +28,4 @@ ul-li 구조를 만듦. ul은 parent, li는 children.
 클릭할 때마다 새로운 li 엘리먼트를 만들고, input의 value로 부터
 들어오는 내용을 채워서 ul에 붙인다. 
 -->
+
