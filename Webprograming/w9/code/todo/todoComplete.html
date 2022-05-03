@@ -20,11 +20,12 @@
       input.value = ""
       span.innerHTML = ul.childElementCount;
     }
+
     del.onclick = () => {
-      const check = document.getElementById("checkbox").checked = true;
-      // var inputs = body.querySelectorAll("input[type=checkbox]:checked");
+      // const check = document.getElementBytype("checkbox").checked = true;
+      var check = document.querySelectorAll("input:checked");
       for (var i = 0; i < check.length; i++) {
-          check[i].parentElement.parentElement.remove();
+          check[i].parentElement.remove();
         }
       span.innerHTML = ul.childElementCount;
     }
