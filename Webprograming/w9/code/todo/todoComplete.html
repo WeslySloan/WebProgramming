@@ -11,7 +11,8 @@
     const input = document.getElementById("input");
     const btn = document.getElementById("btn");
     const span = document.getElementById("span");
-    // var inputs = body.querySelectorAll("input[type=checkbox]:checked");
+    const del = document.getElementById("del");
+
     btn.onclick = () => {
       let li = document.createElement('div')
       li.innerHTML = '<input type ="checkbox">' + input.value; 
@@ -19,12 +20,14 @@
       input.value = ""
       span.innerHTML = ul.childElementCount;
     }
-    // del.onclick = () => {
-    //   for (var i = 0; i < inputs.length; i++) {
-    //       inputs[i].parentElement.parentElement.remove();
-    //     }
-    //   span.innerHTML = ul.childElementCount;
-    // }
+    del.onclick = () => {
+      const check = document.getElementById("checkbox").checked = true;
+      // var inputs = body.querySelectorAll("input[type=checkbox]:checked");
+      for (var i = 0; i < check.length; i++) {
+          check[i].parentElement.parentElement.remove();
+        }
+      span.innerHTML = ul.childElementCount;
+    }
   });
 </script>
 
