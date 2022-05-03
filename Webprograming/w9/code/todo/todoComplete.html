@@ -11,6 +11,7 @@
     const input = document.getElementById("input");
     const btn = document.getElementById("btn");
     const span = document.getElementById("span");
+    // var inputs = body.querySelectorAll("input[type=checkbox]:checked");
     btn.onclick = () => {
       let li = document.createElement('div')
       li.innerHTML = '<input type ="checkbox">' + input.value; 
@@ -18,6 +19,12 @@
       input.value = ""
       span.innerHTML = ul.childElementCount;
     }
+    // del.onclick = () => {
+    //   for (var i = 0; i < inputs.length; i++) {
+    //       inputs[i].parentElement.parentElement.remove();
+    //     }
+    //   span.innerHTML = ul.childElementCount;
+    // }
   });
 </script>
 
@@ -26,6 +33,7 @@
   <ul id="ul"></ul>
   <input id="input" type="text" value="" dir="rtl">
   <button id="btn">Add</button>
+  <button id="del">Delete</button>
   <div>
     Numbers : <span id = "span">0</span>
   </div>
