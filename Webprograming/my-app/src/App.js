@@ -1,40 +1,78 @@
-import { useState } from 'react';
-
-// Todo List에 추가하는 것 까지 
-
-const TodoAdd = () => {
-  const [todo, setTodo] = useState('')    // object (todo)
-  const [todos, setTodos] = useState([])  // array of objects
-
-  const handleInput = e => {
-    setTodo(e.target.value) 
-  }
-
-  
-
-  const handleAdd = e => {
-    // e.preventDefault();
-    if (todo === "") return;
-    setTodos([...todos,todo])
-    setTodo('');
-  }
-
+import { useState, useEffect } from "react";
+// Usage
+function App() {
+  const size = useWindowSize();
   return (
     <div>
-      <h3>Todo List</h3>
-      <ul>
-        {
-          todos.map((a, idx) => <li key={idx}>{a}</li>)
-        }
-      </ul>
-      <input onChange={handleInput} />
-      <button onClick={handleAdd}>Add</button>
+      {size.width}px / {size.height}px
     </div>
   );
 }
-// useRef를 써야 input의 value를 변경 할 수 있는걸로 아는데
+// Hook
+function useWindowSize() {
+  // Initialize state with undefined width/height so server and client renders match
+  // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
+  const [windowSize, setWindowSize] = useState({
+    width: undefined,
+    height: undefined,
+  });
+  useEffect(() => {
+    // Handler to call on window resize
+    function handleResize() {
+      // Set window width/height to state
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    }
+    // Add event listener
+    window.addEventListener("resize", handleResize);
+    // Call handler right away so state gets updated with initial window size
+    handleResize();
+    // Remove event listener on cleanup
+    return () => window.removeEventListener("resize", handleResize);
+  }, []); // Empty array ensures that effect is only run on mount
+  return windowSize;
+}
 
-export default TodoAdd;
+export default App;
+// import { useState } from 'react';
+
+// // Todo List에 추가하는 것 까지 
+
+// const TodoAdd = () => {
+//   const [todo, setTodo] = useState('')    // object (todo)
+//   const [todos, setTodos] = useState([])  // array of objects
+
+//   const handleInput = e => {
+//     setTodo(e.target.value) 
+//   }
+
+  
+
+//   const handleAdd = e => {
+//     // e.preventDefault();
+//     if (todo === "") return;
+//     setTodos([...todos,todo])
+//     setTodo('');
+//   }
+
+//   return (
+//     <div>
+//       <h3>Todo List</h3>
+//       <ul>
+//         {
+//           todos.map((a, idx) => <li key={idx}>{a}</li>)
+//         }
+//       </ul>
+//       <input onChange={handleInput} />
+//       <button onClick={handleAdd}>Add</button>
+//     </div>
+//   );
+// }
+// // useRef를 써야 input의 value를 변경 할 수 있는걸로 아는데
+
+// export default TodoAdd;
 
 // import React, { useState } from 'react';
 // import './Game.css';
