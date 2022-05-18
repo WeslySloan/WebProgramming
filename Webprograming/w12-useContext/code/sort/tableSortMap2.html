@@ -1,0 +1,83 @@
+<html>
+  <head> <title>Table Sort</title> </head>
+
+<style>
+  td,
+  th {
+    height: 20px;
+    width: 100px;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid;
+  }
+</style>
+
+<script>
+  window.onload = function () {
+
+    // ------------ Data (Object) Creation -----------------------------
+    class Student {
+      constructor(name, age, enrolled, score) {
+        this.name = name; this.age = age;
+        this.enrolled = enrolled; this.score = score;
+      }
+    }
+
+    var studs = [
+      new Student('B', 28, false, 70),
+      new Student('E', 18, true, 80),
+      new Student('A', 29, true, 95),
+      new Student('D', 40, false, 67),
+      new Student('C', 30, true, 92),
+    ];
+
+    // ------- Creation of the intial table --------------------------------
+
+    const makeTable = (arr) =>
+      `<table>
+      <thead><tr><th id="thName">이름<th id="thAge">나이<th id="thReg">등록<th id="thScore">점수<tbody>
+        ${arr
+        .map((s) => `<tr><td>${s.name}<td>${s.age}<td>${s.enrolled ? "재학" : "휴학"}<td>${s.score}</tr>`)
+        .reduce((acc, cur) => acc + cur, "")       // .join('')
+      }
+      </table>`;
+
+    table.innerHTML = makeTable(studs);
+
+    // ---- Sort & update the table --------------------------------------
+    const sortBy = (key) => studs.sort((a, b) => (a[key] < b[key]) ? -1 : ((a[key] > b[key]) ? 1 : 0));
+
+    const updateTbody = () => {
+      for (let i = 0; i < studs.length; i++) {          // side-effect
+        let { name, age, enrolled, score } = studs[i];
+        table.rows[i + 1].innerHTML = `<tr><td>${name}<td>${age}<td>${enrolled ? "재학" : "휴학"}<td>${score}</tr>`;
+      };
+    }
+
+    // ----- Set the click handler for each  ------------------------------
+    thName.onclick = () => { sortBy('name'); updateTbody(); }
+    thAge.onclick = () => { sortBy('age'); updateTbody(); }
+    thReg.onclick = () => { sortBy('enrolled'); updateTbody(); }
+    thScore.onclick = () => { sortBy('score'); updateTbody(); }
+
+    // ---- Unnecessary : more readable code for sort ---------------------
+    const sortBy2 = (key) => {
+      const compareBy = (key) => {
+        return (a, b) => {
+          if (a[key] < b[key]) return -1;
+          if (a[key] > b[key]) return 1;
+          return 0;
+        };
+      }
+      studs.sort(compareBy(key));
+    }
+    // ---------------------------------------------------------------------
+  }
+</script>
+
+<body>
+  <h3>객체 생성, Table 구성, Sorting : 함수형 프로그래밍 </h3>
+  <table id="table">
+</body>
+
+</html>
