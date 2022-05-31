@@ -1,40 +1,90 @@
-import { useRef } from 'react';
+import { BrowserRouter, Routes, Route, Link, NavLink } from 'react-router-dom'
+// import './styles.scss'
 
-export default function Calculator() {
-  const x = useRef(0)
-  const y = useRef(0)
-  const result = useRef(0)
-
-  const handleX = e => {
-    y.current.value = e.trget.value
-  }
-  const handleY = e => {
-      y.current.value = e.trget.value
-  }
-  const handleResult = () => { 
-      result.current.value = parseInt(x.current.value) + parseInt(y.current.value)
-  } 
-
-
+const HomePage = () => {
   return (
-    <div className="App">
-      <h3>계산기 프로그램</h3>
-      <p>더 하기 </p>
-      <hr />
-      <div>
-        <input ref={x} placeholder={0} dir='rtl' onChange={handleX} />
-        &nbsp;
-        <>+</>
-        &nbsp;
-        <input ref={y} placeholder={0} dir='rtl' onChange={handleY} />
-        &nbsp;
-        <input type="button" value='=' onClick={handleResult} />
-        &nbsp;
-        <input value={result} placeholder={0} readOnly dir='rtl' />
-      </div>
+    <div>
+      <BrowserRouter>
+        <nav>
+          <NavLink to='/'>Home</NavLink>
+          <NavLink to='about'>About</NavLink>
+          <NavLink to='contact'>Contact</NavLink>
+        </nav>
+
+        <Routes>
+          <Route path='/' element={<Start />} />
+          <Route path='about' element={<About />} />
+          <Route path='contact' element={<Contact />} />
+        </Routes>
+      </BrowserRouter>
     </div>
-  );
+  )
 }
+
+const Start = () => {
+  return (
+    <div>
+      <h1>Start</h1>
+    </div>
+  )
+}
+
+const About = () => {
+  return (
+    <div>
+      <h1>About</h1>
+    </div>
+  )
+}
+
+const Contact = () => {
+  return (
+    <div>
+      <h1>Contact</h1>
+    </div>
+  )
+}
+
+export default HomePage
+
+
+// import { useRef } from 'react';
+
+// export default function Calculator() {
+//   const x = useRef(0)
+//   const y = useRef(0)
+//   const result = useRef(0)
+
+//   const handleX = e => {
+//     y.current.value = e.trget.value
+//   }
+//   const handleY = e => {
+//       y.current.value = e.trget.value
+//   }
+//   const handleResult = () => { 
+//       result.current.value = parseInt(x.current.value) + parseInt(y.current.value)
+//   } 
+
+
+//   return (
+//     <div className="App">
+//       <h3>계산기 프로그램</h3>
+//       <p>더 하기 </p>
+//       <hr />
+//       <div>
+//         <input ref={x} placeholder={0} dir='rtl' onChange={handleX} />
+//         &nbsp;
+//         <>+</>
+//         &nbsp;
+//         <input ref={y} placeholder={0} dir='rtl' onChange={handleY} />
+//         &nbsp;
+//         <input type="button" value='=' onClick={handleResult} />
+//         &nbsp;
+//         <input value={result} placeholder={0} readOnly dir='rtl' />
+//       </div>
+//     </div>
+//   );
+// }
 
 // import React, { useState } from 'react';
 // import './table.css';          // .table th   .table td
