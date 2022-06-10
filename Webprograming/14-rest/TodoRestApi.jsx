@@ -69,7 +69,7 @@ const TodoRestApi = () => {
             <h3>Todo List</h3>
             <TodoList todos={todos} toggleTodo={toggleTodo} />
             <input value={todo} onChange={handleInput} />
-            <button onClick={hanldeAdd}>Add</button>
+            <button onClick={handleAdd}>Add</button>
             <button onClick={handleDelete}>Delete</button>
             <div> Numbers : {todos.length}</div>
         </div>

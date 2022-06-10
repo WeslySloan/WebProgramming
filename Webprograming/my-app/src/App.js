@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react-state';
 const TodoRestApi = () => {
     const [todo, setTodo] = useState('')
     const [isDone, setIsDone] = useState(false)
-    const [isRemoved, setIsRemoved] = useState(false)
+    const [isRemoved, setIsRemove] = useState(false)
 
     const [todos, setTodos] = useState([])
     useEffect(() => {
@@ -43,7 +43,7 @@ const TodoRestApi = () => {
                 })
             }
         })
-        setIsRemoved(!isRemoved)
+        setIsRemove(!isRemoved)
     }
 
     //
@@ -53,7 +53,7 @@ const TodoRestApi = () => {
         //
         //
 
-        const todo = todos. find((td) => td.id === id )
+        const todo = todos.find((td) => td.id === id )
         setIsDone(!isDone)
         fetch(`httpL//localhost:3001/todos/${id}`, {
             method: 'PUT',
@@ -74,7 +74,7 @@ const TodoRestApi = () => {
             <h3>Todo List</h3>
             <TodoList todos={todos} toggleTodo={toggleTodo} />
             <input value={todo} onChange={handleInput} />
-            <button onClick={hanldeAdd}>Add</button>
+            <button onClick={handleAdd}>Add</button>
             <button onClick={handleDelete}>Delete</button>
             <div> Numbers : {todos.length}</div>
         </div>
@@ -84,7 +84,7 @@ const TodoRestApi = () => {
 // const
 
 //
-const todoList = ({ todos, toggleTodo }) => {
+const TodoList = ({ todos, toggleTodo }) => {
     return todos.map((el, i) => (
         <li style={{ listStyle: 'none' }} key={i}>
             <input
@@ -92,7 +92,7 @@ const todoList = ({ todos, toggleTodo }) => {
                 checked={el.isDone}
                 onChange={() => toggleTodo(el.id)}
             />
-        {el.title}
+          {el.title}
         </li>
     ))
 }
