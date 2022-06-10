@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react-state';
 const TodoRestApi = () => {
     const [todo, setTodo] = useState('')
     const [isDone, setIsDone] = useState(false)
-    const [isRemoved, setIsRemoved] = useState(false)
+    const [isRemoved, setIsRemove] = useState(false)
 
     const [todos, setTodos] = useState([])
     useEffect(() => {
@@ -16,7 +16,7 @@ const TodoRestApi = () => {
         })
     }, [todo, isDone, isRemoved, setIsDone])
 
-    const handleInput = (e) => setTodo(e.target.value) // String
+    const handleInput = (e) => setTodo(e.target.value) 
 
     const handleAdd = (e) => {
         e.preventDefault()
@@ -33,7 +33,6 @@ const TodoRestApi = () => {
     setTodo('')
     }
 
-    // const
     const handleDelete = () => {
         setIsRemove(!isRemoved)
         todos.forEach((t) => {
@@ -43,15 +42,52 @@ const TodoRestApi = () => {
                 })
             }
         })
-        setIsRemoved(!isRemoved)
+        setIsRemove(!isRemoved)
     }
 
-    //
+
     const toggleTodo = (id) => {
-        // 
-        //
-        //
-        //
 
-        const todo = todos. find((td => td.id === id ))
+        const todo = todos. find((td) => td.id === id )
+        setIsDone(!isDone)
+        fetch(`httpL//localhost:3001/todos/${id}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({...todo, isDone: !todo.isDone}),
+        })
+
+            .then((res) => {
+
+                if (res.ok) {
+                    setIsDone(!isDone)
+                }
+            })
     }
+
+    return (
+        <div>
+            <h3>Todo List</h3>
+            <TodoList todos={todos} toggleTodo={toggleTodo} />
+            <input value={todo} onChange={handleInput} />
+            <button onClick={hanldeAdd}>Add</button>
+            <button onClick={handleDelete}>Delete</button>
+            <div> Numbers : {todos.length}</div>
+        </div>
+    )
+}
+
+
+const todoList = ({ todos, toggleTodo }) => {
+    return todos.map((el, i) => (
+        <li style={{ listStyle: 'none' }} key={i}>
+            <input
+                type = 'checkbox'
+                checked={el.isDone}
+                onChange={() => toggleTodo(el.id)}
+            />
+        {el.title}
+        </li>
+    ))
+}
+
+export default TodoRestApi

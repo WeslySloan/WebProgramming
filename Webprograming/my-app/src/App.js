@@ -1,41 +1,147 @@
-import { useState, useEffect } from "react";
-// Usage
-function App() {
-  const size = useWindowSize();
-  return (
-    <div>
-      {size.width}px / {size.height}px
-    </div>
-  );
-}
-// Hook
-function useWindowSize() {
-  // Initialize state with undefined width/height so server and client renders match
-  // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
-  const [windowSize, setWindowSize] = useState({
-    width: undefined,
-    height: undefined,
-  });
-  useEffect(() => {
-    // Handler to call on window resize
-    function handleResize() {
-      // Set window width/height to state
-      setWindowSize({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
+import { useState, useEffect } from 'react-state';
+
+const TodoRestApi = () => {
+    const [todo, setTodo] = useState('')
+    const [isDone, setIsDone] = useState(false)
+    const [isRemoved, setIsRemoved] = useState(false)
+
+    const [todos, setTodos] = useState([])
+    useEffect(() => {
+        fetch('http://localhost:3001/todos')
+        .then((res) => {
+            return res.json()
+        })
+        .then((data) => {
+            setTodos(data)
+        })
+    }, [todo, isDone, isRemoved, setIsDone])
+
+    const handleInput = (e) => setTodo(e.target.value) // String
+
+    const handleAdd = (e) => {
+        e.preventDefault()
+        if (todo === '') return
+        fetch('http://localhost:3001/todos', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                id: todos.length + 1 + todo,
+                title: todo, 
+                isDone: false,
+            }),
+        })
+    setTodo('')
     }
-    // Add event listener
-    window.addEventListener("resize", handleResize);
-    // Call handler right away so state gets updated with initial window size
-    handleResize();
-    // Remove event listener on cleanup
-    return () => window.removeEventListener("resize", handleResize);
-  }, []); // Empty array ensures that effect is only run on mount
-  return windowSize;
+
+    // const
+    const handleDelete = () => {
+        setIsRemove(!isRemoved)
+        todos.forEach((t) => {
+            if ( t.isDone === true ) {
+                fetch(`http://localhost:3001/todos/${t.id}`, {
+                    method: 'DELETE',
+                })
+            }
+        })
+        setIsRemoved(!isRemoved)
+    }
+
+    //
+    const toggleTodo = (id) => {
+        // 
+        //
+        //
+        //
+
+        const todo = todos. find((td) => td.id === id )
+        setIsDone(!isDone)
+        fetch(`httpL//localhost:3001/todos/${id}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({...todo, isDone: !todo.isDone}),
+        })
+            //   const
+            .then((res) => {
+                //   return
+                if (res.ok) {
+                    setIsDone(!isDone)
+                }
+            })
+    }
+
+    return (
+        <div>
+            <h3>Todo List</h3>
+            <TodoList todos={todos} toggleTodo={toggleTodo} />
+            <input value={todo} onChange={handleInput} />
+            <button onClick={hanldeAdd}>Add</button>
+            <button onClick={handleDelete}>Delete</button>
+            <div> Numbers : {todos.length}</div>
+        </div>
+    )
 }
 
-export default App;
+// const
+
+//
+const todoList = ({ todos, toggleTodo }) => {
+    return todos.map((el, i) => (
+        <li style={{ listStyle: 'none' }} key={i}>
+            <input
+                type = 'checkbox'
+                checked={el.isDone}
+                onChange={() => toggleTodo(el.id)}
+            />
+        {el.title}
+        </li>
+    ))
+}
+
+export default TodoRestApi
+
+// import { useState, useEffect } from "react";
+// // Usage
+// function App() {
+//   const size = useWindowSize();
+//   return (
+//     <div>
+//       {size.width}px / {size.height}px
+//     </div>
+//   );
+// }
+// // Hook
+// function useWindowSize() {
+//   // Initialize state with undefined width/height so server and client renders match
+//   // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
+//   const [windowSize, setWindowSize] = useState({
+//     width: undefined,
+//     height: undefined,
+//   });
+//   useEffect(() => {
+//     // Handler to call on window resize
+//     function handleResize() {
+//       // Set window width/height to state
+//       setWindowSize({
+//         width: window.innerWidth,
+//         height: window.innerHeight,
+//       });
+//     }
+//     // Add event listener
+//     window.addEventListener("resize", handleResize);
+//     // Call handler right away so state gets updated with initial window size
+//     handleResize();
+//     // Remove event listener on cleanup
+//     return () => window.removeEventListener("resize", handleResize);
+//   }, []); // Empty array ensures that effect is only run on mount
+//   return windowSize;
+// }
+
+// export default App;
+
+
+
+
+
 // import { useState } from 'react';
 
 // // Todo List에 추가하는 것 까지 
