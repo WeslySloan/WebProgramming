@@ -1,0 +1,89 @@
+1.
+웹 클라이언트
+사용자 인터페이스 담당
+웹 서버에 웹 문서를 요청하고 받아 사용자에게 출력
+
+웹 서버
+웹 사이트를 탑재하는 컴퓨터. 구글 네이버 등
+웹 문서, 이미지. 동영상 등의 데이터 저장 관리
+웹 클라이언트의 요청을 받아 웹 문서 전송
+웹 서버로 작동하도록 하는 소프트웨어 실행
+
+2.
+웹 페이지의 구조와 내용 - HTML 
+웹 페이지의 모양 - CSS(Cascading Style Sheet) 
+웹 페이지의 행동 및 응용 프로그램 – Javascript
+
+3.
+a. www.oracle.com
+b. 포트 번호
+c. 웹 서버상 파일의 경로및 파일 이름
+d. 암호가 필요한 전송을 할때
+
+4.
+ a. <!doctype html> <html> <head> <title> <body>
+ b. <p>
+ c. <div> <h?> <table>
+ d. <strong> <span> <script> <img>
+ e. <iframe>
+ f. <link>
+ g. <a>
+ h. <script>
+ i. <br>
+
+5. 
+x.jpg 라는 이미지를 가로 150px, 세로 200px 로 배치하고, 이미지가 렌더링,표시 되지 못했을 경우 대채하는 문자는 x image 이다
+
+6. 
+<header> <footer> <aside> <article> <section> <nav> 
+정확한 컨텐츠를 식별하기 위함이다. 
+
+7.
+
+//// <form> 태그의 ( ) 속성은 웹 서버 응용 프로그램의 이름을 지정하며, ( ) 는 폼 데이터를 웹 서버로 전송할 때 데이터 전송 방식을 결정한다. 이 방식에는 ( )과 ( )이 있다. /////
+action, method, get, post
+
+8.
+ a.<input type="number" min="0" max="10" step="0.5">
+ b.<input type="month" value="2016-09">
+
+9.
+<style>
+span {color : blue; font-size : 20px;} 
+</style>
+
+10.
+<style>
+strong {color : blue;} 
+</style>
+<div> 2 학기 <strong> 학습 내용</strong> </div>
+
+<div>2학기<strong style = "color : blue">학습 내용</strong></div>
+
+11.
+<style>
+{color : rgb(136, 43, 226)} 
+</style>
+
+14.
+x 전역, y 지역 , z전역?
+
+15.
+20px
+
+16.
+<body>
+    <span style = "font-size : 10px">10px</span>
+    <span style = "font-size : 15px">15px</span>
+    <span style = "font-size : 20px">20px</span>
+</body>
+
+17.
+
+
+18.
+
+
+19.
+Math.floor(Math.random() * 100);
+
